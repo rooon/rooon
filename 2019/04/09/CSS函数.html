@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65975979"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
+    
+    
+    
+    <meta name="google-site-verification" content="JlTZ59Yi1jt_DCjDtIp1uJbX_ilLr122BLomvGlZwuU">
+    
+    <title>CSS函数 | 故事胶片</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="css">
+    <meta name="description" content="1. attr() 用来选择元素的属性值，用法：attr(html元素的属性名)，正常搭配css content一起使用  html:  &amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot;http://a.b.c&amp;quot; name=&amp;quot;attr&amp;quot;&amp;gt;十&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot;http://d.f.e&amp;">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS函数">
+<meta property="og:url" content="https://jiaopianjun.cc/2019/04/09/CSS函数.html">
+<meta property="og:site_name" content="故事胶片">
+<meta property="og:description" content="1. attr() 用来选择元素的属性值，用法：attr(html元素的属性名)，正常搭配css content一起使用  html:  &amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot;http://a.b.c&amp;quot; name=&amp;quot;attr&amp;quot;&amp;gt;十&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot;http://d.f.e&amp;">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/5/6/16a8c1aef0e0d2ec?w=403&h=200&f=png&s=4614">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/5/6/16a8c1d082e78012?w=405&h=201&f=png&s=33399">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/5/6/16a8c201378b21d2?w=406&h=203&f=png&s=27704">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/5/6/16a8c31c87ea329e?w=400&h=200&f=png&s=66224">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/5/6/16a8c362dcfeb298?w=400&h=199&f=png&s=10504">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/5/6/16a8c377c7fb9dc0?w=403&h=202&f=png&s=58080">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/5/6/16a8c3f6d9846d82?w=402&h=199&f=png&s=4451">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/5/6/16a8c4101fb8b882?w=401&h=202&f=png&s=45514">
+<meta property="og:updated_time" content="2019-05-21T13:19:18.490Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS函数">
+<meta name="twitter:description" content="1. attr() 用来选择元素的属性值，用法：attr(html元素的属性名)，正常搭配css content一起使用  html:  &amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot;http://a.b.c&amp;quot; name=&amp;quot;attr&amp;quot;&amp;gt;十&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot;http://d.f.e&amp;">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/5/6/16a8c1aef0e0d2ec?w=403&h=200&f=png&s=4614">
+    
+        <link rel="alternate" type="application/atom+xml" title="故事胶片" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.gif">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Lieme</h5>
+          <a href="mailto:pianjiao@gmail.com" title="pianjiao@gmail.com" class="mail">pianjiao@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags/">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/photos">
+                <i class="icon icon-lg icon-camera"></i>
+                Photos
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jiaopianjun" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://write.rooon.co" target="_blank">
+                <i class="icon icon-lg icon-book"></i>
+                Note
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links">
+                <i class="icon icon-lg icon-unlink"></i>
+                Links
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+            <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <span id="jinrishici-sentence">正在加载今日诗词....</span>
+        <div class="flex-col header-title ellipsis">CSS函数</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">CSS函数</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-09T13:30:00.000Z" itemprop="datePublished" class="page-time">
+  2019-04-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Coding/">Coding</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-attr"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. attr()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-calc"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. calc()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-linear-gradient"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. linear-gradient()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-radial-gradient"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. radial-gradient()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-repeating-linear-gradient"><span class="post-toc-number">5.</span> <span class="post-toc-text">5. repeating-linear-gradient()</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-CSS函数" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">CSS函数</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-09 21:30:00" datetime="2019-04-09T13:30:00.000Z" itemprop="datePublished">2019-04-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Coding/">Coding</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content clearfix" id="post-content" itemprop="postContent">
+            <h3 id="1-attr"><a href="#1-attr" class="headerlink" title="1. attr()"></a>1. attr()</h3><blockquote>
+<p>用来选择元素的属性值，用法：attr(html元素的属性名)，正常搭配css content一起使用</p>
+</blockquote>
+<pre><code>html:
+
+&lt;p&gt;&lt;a href=&quot;http://a.b.c&quot; name=&quot;attr&quot;&gt;十&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://d.f.e&quot; name=&quot;我是谁&quot;&gt;九&lt;/a&gt;&lt;/p&gt;
+
+css:
+
+a:after{content:&apos;(&apos;attr(href) &apos;/&apos; attr(name) &apos;)&apos;}
+
+
+结果：
+
+十(http://a.b.c / attr)
+九(http://d.f.e / 我是谁)
+</code></pre><h3 id="2-calc"><a href="#2-calc" class="headerlink" title="2. calc()"></a>2. calc()</h3><blockquote>
+<p>用于动态计算长度值 calc(数学表达式)</p>
+</blockquote>
+<ul>
+<li>运算符前后需要有空格</li>
+<li>不管什么长度都可以用calc计算</li>
+<li>calc() 支持 ‘+’,’-‘,’*’,’/‘ 等运算</li>
+<li><p>calc() 使用标准的数学运算优先级规则</p>
+<p>  语法：</p>
+<p>  width: calc(70% - 60px)<br>  height: calc(70% / 2 * 12 + 66px)</p>
+</li>
+</ul>
+<h3 id="3-linear-gradient"><a href="#3-linear-gradient" class="headerlink" title="3. linear-gradient()"></a>3. linear-gradient()</h3><blockquote>
+<p>用于 创建一个线性渐变的 图像，需要设置一个起点一个方向，还可以定义角度起始颜色等。</p>
+</blockquote>
+<p>语法：</p>
+<pre><code>background: linear-gradient(direction, color-stop1, color-stop2, ...);
+
+direction: 指定渐变方向的角度 （可以省略）
+color-stop1： 指定渐变的起止颜色
+</code></pre><p>示例：</p>
+<pre><code>background: linear-gradient(red,yellow,blue,green); 
+
+// 结果如下，在未设置渐变角度是自上而下的
+</code></pre><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2019/5/6/16a8c1aef0e0d2ec?w=403&h=200&f=png&s=4614" alt title>
+                </div>
+                <div class="image-caption" style="display:none;"></div>
+            </figure>
+<p>示例：</p>
+<pre><code>background: linear-gradient(12deg,red,yellow,blue,green); 
+
+// 结果如下，设置渐变角度后
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/5/6/16a8c1d082e78012?w=405&amp;h=201&amp;f=png&amp;s=33399" alt></p>
+<p>示例：</p>
+<pre><code>background: linear-gradient(to left top,red,yellow,blue,green);  
+
+// 结果如下，渐变角度可以从某个方向到另外一个方向
+</code></pre><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2019/5/6/16a8c201378b21d2?w=406&h=203&f=png&s=27704" alt title>
+                </div>
+                <div class="image-caption" style="display:none;"></div>
+            </figure>
+<h3 id="4-radial-gradient"><a href="#4-radial-gradient" class="headerlink" title="4. radial-gradient()"></a>4. radial-gradient()</h3><blockquote>
+<p>用法和linear-gradient()差不多，只不过它是用径向渐变创建图像，渐变由中心点定义，必须设置两个终止色（区别）</p>
+</blockquote>
+<p>语法：</p>
+<pre><code>background: radial-gradient(shape size at position, start-color, ..., last-color);
+
+shape: 确定圆的类型（选填）
+
+    - ellispe(默认): 指定椭圆形的径向渐变
+    - circle： 指定圆形的径向渐变
+
+size: 指定径向渐变的大小（选填）
+
+    - farthest-corner(默认)： 指定径向渐变的半径长度为从圆心到离圆心最远的角 
+    - closest-side： 指定径向渐变的半径长度为从圆心到离圆心最近的边
+    - closest-corner： 指定径向渐变的半径长度为从圆心到离圆心最近的角
+    - farthest-side：指定径向渐变的半径长度为从圆心到离圆心最远的边
+
+position: 定义渐变的位置（选填）
+
+    - center(默认)：设置中间为径向渐变圆心的纵坐标值
+    - top：设置顶部为径向渐变圆心的纵坐标值
+    - bottom：设置底部为径向渐变圆心的纵坐标值
+
+start-color, ..., last-color：定义渐变的起止色
+</code></pre><p>示例：</p>
+<pre><code>background: radial-gradient(red, green, blue, yellow);   
+
+// 结果如下，渐变从中心往外扩散
+</code></pre><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2019/5/6/16a8c31c87ea329e?w=400&h=200&f=png&s=66224" alt title>
+                </div>
+                <div class="image-caption" style="display:none;"></div>
+            </figure>
+<p>示例：</p>
+<pre><code>background: radial-gradient( red 5%, green 10%, blue 15%,yellow 20%);   
+
+// 结果如下，可以单独设置每个颜色的占比
+</code></pre><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2019/5/6/16a8c362dcfeb298?w=400&h=199&f=png&s=10504" alt title>
+                </div>
+                <div class="image-caption" style="display:none;"></div>
+            </figure>
+<p>示例：</p>
+<pre><code>background: radial-gradient(circle, red, green, blue, yellow);  
+
+// 结果如下，径向渐变设置为圆形，默认为椭圆形
+</code></pre><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2019/5/6/16a8c377c7fb9dc0?w=403&h=202&f=png&s=58080" alt title>
+                </div>
+                <div class="image-caption" style="display:none;"></div>
+            </figure>
+<h3 id="5-repeating-linear-gradient"><a href="#5-repeating-linear-gradient" class="headerlink" title="5. repeating-linear-gradient()"></a>5. repeating-linear-gradient()</h3><blockquote>
+<p>创建重复的线性渐变图像</p>
+</blockquote>
+<p>语法：</p>
+<pre><code>background: repeating-linear-gradient(angle | to side-or-corner, color-stop1, color-stop2, ...);
+
+angle: 定义渐变角度（0deg-360deg，默认180deg）
+
+side-or-corner: 指定线性渐变起始位置（顺序随意）
+
+    - 关键字一： 水平位置（left,right）
+    - 关键字而： 垂直位置（top,bottom）
+
+color-stop1, color-stop2,... 
+
+    - 指定渐变的起止颜色，由颜色值、停止位置（可选，使用百分比指定）组成
+</code></pre><p>示例：</p>
+<pre><code>background: repeating-linear-gradient(red, yellow 10%, green 20%); 
+
+// 结果如下，默认自上而下，以及设置颜色的占比
+</code></pre><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2019/5/6/16a8c3f6d9846d82?w=402&h=199&f=png&s=4451" alt title>
+                </div>
+                <div class="image-caption" style="display:none;"></div>
+            </figure>
+<p>示例：</p>
+<pre><code>background: repeating-linear-gradient(30deg, red 5%, yellow 10%, green 20%);
+
+// 结果如下，设置角度后的效果
+</code></pre><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2019/5/6/16a8c4101fb8b882?w=401&h=202&f=png&s=45514" alt title>
+                </div>
+                <div class="image-caption" style="display:none;"></div>
+            </figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2019-05-21T13:19:18.490Z" itemprop="dateUpdated">2019-05-21 21:19:18</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://jiaopianjun.cc">
+            <img src="/img/avatar.gif" alt="Lieme">
+            Lieme
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiaopianjun.cc/2019/04/09/CSS函数.html&title=《CSS函数》 — 故事胶片&pic=https://jiaopianjun.cc/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2019/04/09/CSS函数.html&title=《CSS函数》 — 故事胶片&source=用心记录美好的瞬间" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiaopianjun.cc/2019/04/09/CSS函数.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CSS函数》 — 故事胶片&url=https://jiaopianjun.cc/2019/04/09/CSS函数.html&via=https://jiaopianjun.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiaopianjun.cc/2019/04/09/CSS函数.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/18/ES6入门之函数的扩展.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">ES6入门之函数的扩展</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/08/ES6入门之数值的扩展.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">ES6入门之数值的扩展</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'pianjiao@gmail.com' == 'true',
+            verify: 'true' == 'true',
+            appId: "TWn7ScRql8E7o3XSclzuzqHv-gzGzoHsz",
+            appKey: "YwgPLTEdtePf3yTQx4iXewoF",
+            avatar: "mm/identicon/monsterid/wavatar/retro/robohash",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="http://upload-images.jianshu.io/upload_images/1251988-b06de6cce1ee9b14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="http://upload-images.jianshu.io/upload_images/1251988-b06de6cce1ee9b14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720" data-alipay="http://upload-images.jianshu.io/upload_images/1251988-926d37b96c5affe0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+            <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        
+            <p>
+
+                
+            </p>
+        
+    </div>
+    <div class="bottom">
+        <p><span>Lieme &copy; 2018 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18048410号-1</a><br>
+                
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiaopianjun.cc/2019/04/09/CSS函数.html&title=《CSS函数》 — 故事胶片&pic=https://jiaopianjun.cc/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2019/04/09/CSS函数.html&title=《CSS函数》 — 故事胶片&source=用心记录美好的瞬间" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiaopianjun.cc/2019/04/09/CSS函数.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CSS函数》 — 故事胶片&url=https://jiaopianjun.cc/2019/04/09/CSS函数.html&via=https://jiaopianjun.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiaopianjun.cc/2019/04/09/CSS函数.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIElEQVR42u3aS27DMAxFUe9/0+60gyq5j7QKWLwaGYlj62RAiJ/rwuv+tVbf8vtX95BftZYMGTJey7g/LnIP4a3uXL2L702GDBlzGGQT5NvPvyK89AkyZMiQQQ5/JOzy7cqQIUPGDkbtk/SYKEOGDBkkia0Fx7Qwtz0XlyFDxgsZvOr+/9db+hsyZMh4FeMOF39CLVzepSVDhoyzGemRjmyID1jURjSWd8qQIeNQRhrUakMYBEYGMpafyJAhYwwjjdPkk/5wGCnDyZAh42xGOvKVFvRJPCSNUtRmkCFDxqGMtB341NGQw4JQK0OGjKMZfMSB3BnU+UoNy+W0iAwZMg5ldLaVlv47B0c0liFDhoxhDPKIdIwsyKpxmJYhQ8Y0Ru3FO8JosQgoQ4aMQxmd0YodqW8x0ZUhQ8YABi/Zp21OktzWjo9/zIzIkCHjUAYPf+T1TyW9fMxChgwZ0xhxeaud0KZp85fALUOGjAEMvvXOgAUP4vxahgwZcxidlJUfB8lziu+SIUPGAEZ6gKsd+PohOM7FZciQcRzjaqxOCpq+XYYMGXMYd7hqgTVNhmOqDBkyjmbUAhwvt3XGMsh1DJMhQ8ZrGWSLtcSyn6AG/7cMGTIGMHbE77Tc1kqVZciQIaPUbuTJKv8LHgu4MmTIOJrBR8F4oa3TRpUhQ8YcBkli03DJ2ajXyjuxMmTIOI6xe5CCNwB4Sa7Y1JQhQ8b7GD9CAgPxtO4DXgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '404 --- (。>︿<)_θ';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65975979"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
+    
+    
+    
+    <meta name="google-site-verification" content="JlTZ59Yi1jt_DCjDtIp1uJbX_ilLr122BLomvGlZwuU">
+    
+    <title>jquery判断手机浏览器版本 | 故事胶片</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="移动端">
+    <meta name="description" content="判断当前设备是移动端还是PC端，以作不同操作 1234567891011121314151617181920212223242526272829303132333435363738394041424344function brower()&amp;#123;	var browser = getBrowserInfo() ;	//alert(browser); 	var verinfo = (browser">
+<meta name="keywords" content="移动端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jquery判断手机浏览器版本">
+<meta property="og:url" content="https://jiaopianjun.cc/2018/09/21/jquery判断手机浏览器版本.html">
+<meta property="og:site_name" content="故事胶片">
+<meta property="og:description" content="判断当前设备是移动端还是PC端，以作不同操作 1234567891011121314151617181920212223242526272829303132333435363738394041424344function brower()&amp;#123;	var browser = getBrowserInfo() ;	//alert(browser); 	var verinfo = (browser">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-06T07:26:04.574Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jquery判断手机浏览器版本">
+<meta name="twitter:description" content="判断当前设备是移动端还是PC端，以作不同操作 1234567891011121314151617181920212223242526272829303132333435363738394041424344function brower()&amp;#123;	var browser = getBrowserInfo() ;	//alert(browser); 	var verinfo = (browser">
+    
+        <link rel="alternate" type="application/atom+xml" title="故事胶片" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.gif">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Lieme</h5>
+          <a href="mailto:pianjiao@gmail.com" title="pianjiao@gmail.com" class="mail">pianjiao@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags/">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/photos">
+                <i class="icon icon-lg icon-camera"></i>
+                Photos
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jiaopianjun" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://write.rooon.co" target="_blank">
+                <i class="icon icon-lg icon-book"></i>
+                Note
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links">
+                <i class="icon icon-lg icon-unlink"></i>
+                Links
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+            <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <span id="jinrishici-sentence">正在加载今日诗词....</span>
+        <div class="flex-col header-title ellipsis">jquery判断手机浏览器版本</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">jquery判断手机浏览器版本</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-21T08:20:00.000Z" itemprop="datePublished" class="page-time">
+  2018-09-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Coding/">Coding</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-jquery判断手机浏览器版本" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">jquery判断手机浏览器版本</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-21 16:20:00" datetime="2018-09-21T08:20:00.000Z" itemprop="datePublished">2018-09-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Coding/">Coding</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content clearfix" id="post-content" itemprop="postContent">
+            <p>判断当前设备是移动端还是PC端，以作不同操作</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">brower</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> browser = getBrowserInfo() ;</span><br><span class="line">	<span class="comment">//alert(browser); </span></span><br><span class="line">	<span class="keyword">var</span> verinfo = (browser+<span class="string">""</span>).replace(<span class="regexp">/[^0-9.]/ig</span>,<span class="string">""</span>); </span><br><span class="line">	<span class="keyword">if</span> (verinfo==<span class="string">'7.0'</span> || verinfo==<span class="string">'8.0'</span> || verinfo==<span class="string">'6.0'</span>) &#123;</span><br><span class="line">		alert(<span class="string">"温馨提示：为了您的浏览体验请使用IE9及以上版本。如果您使用的是360浏览器或QQ浏览器等，请点击地址栏尾端的IE图标切换至【极速模式】"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBrowserInfo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> agent = navigator.userAgent.toLowerCase() ;</span><br><span class="line">	<span class="keyword">var</span> regStr_ie = <span class="regexp">/msie [\d.]+;/gi</span> ;</span><br><span class="line">	<span class="keyword">var</span> regStr_ff = <span class="regexp">/firefox\/[\d.]+/gi</span></span><br><span class="line">	<span class="keyword">var</span> regStr_chrome = <span class="regexp">/chrome\/[\d.]+/gi</span> ;</span><br><span class="line">	<span class="keyword">var</span> regStr_saf = <span class="regexp">/safari\/[\d.]+/gi</span> ;</span><br><span class="line">	<span class="comment">//IE</span></span><br><span class="line">	<span class="keyword">if</span>(agent.indexOf(<span class="string">"msie"</span>) &gt; <span class="number">0</span>)&#123;<span class="keyword">return</span> agent.match(regStr_ie) ;&#125;</span><br><span class="line">	<span class="comment">//firefox</span></span><br><span class="line">	<span class="keyword">if</span>(agent.indexOf(<span class="string">"firefox"</span>) &gt; <span class="number">0</span>)&#123;<span class="keyword">return</span> agent.match(regStr_ff) ;&#125;</span><br><span class="line">	<span class="comment">//Chrome</span></span><br><span class="line">	<span class="keyword">if</span>(agent.indexOf(<span class="string">"chrome"</span>) &gt; <span class="number">0</span>)&#123;<span class="keyword">return</span> agent.match(regStr_chrome) ;&#125;</span><br><span class="line">	<span class="comment">//Safari</span></span><br><span class="line">	<span class="keyword">if</span>(agent.indexOf(<span class="string">"safari"</span>) &gt; <span class="number">0</span> &amp;&amp; agent.indexOf(<span class="string">"chrome"</span>) &lt; <span class="number">0</span>)&#123;<span class="keyword">return</span> agent.match(regStr_saf) ;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//手机端|电脑端</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">browserRedirect</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">	<span class="keyword">var</span> sUserAgent= navigator.userAgent.toLowerCase(); </span><br><span class="line">	<span class="keyword">var</span> bIsIpad= sUserAgent.match(<span class="regexp">/ipad/i</span>) == <span class="string">"ipad"</span>; </span><br><span class="line">	<span class="keyword">var</span> bIsIphoneOs= sUserAgent.match(<span class="regexp">/iphone os/i</span>) == <span class="string">"iphone os"</span>; </span><br><span class="line">	<span class="keyword">var</span> bIsMidp= sUserAgent.match(<span class="regexp">/midp/i</span>) == <span class="string">"midp"</span>; </span><br><span class="line">	<span class="keyword">var</span> bIsUc7= sUserAgent.match(<span class="regexp">/rv:1.2.3.4/i</span>) == <span class="string">"rv:1.2.3.4"</span>; </span><br><span class="line">	<span class="keyword">var</span> bIsUc= sUserAgent.match(<span class="regexp">/ucweb/i</span>) == <span class="string">"ucweb"</span>; </span><br><span class="line">	<span class="keyword">var</span> bIsAndroid= sUserAgent.match(<span class="regexp">/android/i</span>) == <span class="string">"android"</span>; </span><br><span class="line">	<span class="keyword">var</span> bIsCE= sUserAgent.match(<span class="regexp">/windows ce/i</span>) == <span class="string">"windows ce"</span>; </span><br><span class="line">	<span class="keyword">var</span> bIsWM= sUserAgent.match(<span class="regexp">/windows mobile/i</span>) == <span class="string">"windows mobile"</span>; </span><br><span class="line">	<span class="keyword">if</span> (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) &#123; </span><br><span class="line">		<span class="built_in">document</span>.getElementById(<span class="string">"a"</span>).style.display=<span class="string">"block"</span>;</span><br><span class="line">		<span class="built_in">document</span>.getElementById(<span class="string">"b"</span>).style.display=<span class="string">"none"</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123; </span><br><span class="line">		<span class="built_in">document</span>.getElementById(<span class="string">"b"</span>).style.display=<span class="string">"block"</span>;</span><br><span class="line">		<span class="built_in">document</span>.getElementById(<span class="string">"a"</span>).style.display=<span class="string">"none"</span>;</span><br><span class="line">	&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;browserRedirect();&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">var browser = &#123;</span><br><span class="line">    versions: <span class="keyword">function</span> () &#123;</span><br><span class="line">        var u = navigator.userAgent, app = navigator.appVersion;</span><br><span class="line">        return &#123;<span class="regexp">//</span>移动终端浏览器版本信息 </span><br><span class="line">            trident: u.indexOf(<span class="string">'Trident'</span>) &gt; -<span class="number">1</span>, <span class="regexp">//</span>IE内核</span><br><span class="line">            presto: u.indexOf(<span class="string">'Presto'</span>) &gt; -<span class="number">1</span>, <span class="regexp">//</span>opera内核</span><br><span class="line">            webKit: u.indexOf(<span class="string">'AppleWebKit'</span>) &gt; -<span class="number">1</span>, <span class="regexp">//</span>苹果、谷歌内核</span><br><span class="line">            gecko: u.indexOf(<span class="string">'Gecko'</span>) &gt; -<span class="number">1</span> &amp;&amp; u.indexOf(<span class="string">'KHTML'</span>) == -<span class="number">1</span>, <span class="regexp">//</span>火狐内核</span><br><span class="line">            mobile: !!u.match(<span class="regexp">/AppleWebKit.*Mobile.*/</span>) || !!u.match(<span class="regexp">/AppleWebKit/</span>), <span class="regexp">//</span>是否为移动终端</span><br><span class="line">            ios: !!u.match(<span class="regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>), <span class="regexp">//i</span>os终端</span><br><span class="line">            android: u.indexOf(<span class="string">'Android'</span>) &gt; -<span class="number">1</span> || u.indexOf(<span class="string">'Linux'</span>) &gt; -<span class="number">1</span>, <span class="regexp">//</span>android终端或者uc浏览器</span><br><span class="line">            iPhone: u.indexOf(<span class="string">'iPhone'</span>) &gt; -<span class="number">1</span> || u.indexOf(<span class="string">'Mac'</span>) &gt; -<span class="number">1</span>, <span class="regexp">//</span>是否为iPhone或者QQHD浏览器</span><br><span class="line">            iPad: u.indexOf(<span class="string">'iPad'</span>) &gt; -<span class="number">1</span>, <span class="regexp">//</span>是否iPad</span><br><span class="line">            webApp: u.indexOf(<span class="string">'Safari'</span>) == -<span class="number">1</span> <span class="regexp">//</span>是否web应该程序，没有头部与底部</span><br><span class="line">        &#125;; </span><br><span class="line">    &#125;(), </span><br><span class="line">    language: (navigator.browserLanguage || navigator.language).toLowerCase() </span><br><span class="line">&#125;        <span class="regexp">//</span>document.writeln(<span class="string">"语言版本: "</span>+browser.language);</span><br><span class="line"><span class="regexp">//</span>document.writeln(<span class="string">" 是否为移动终端: "</span>+browser.versions.mobile);</span><br><span class="line"><span class="regexp">//</span>document.writeln(<span class="string">" ios终端: "</span>+browser.versions.ios);</span><br><span class="line"><span class="regexp">//</span>document.writeln(<span class="string">" android终端: "</span>+browser.versions.android);</span><br><span class="line"><span class="regexp">//</span>document.writeln(<span class="string">" 是否为iPhone: "</span>+browser.versions.iPhone);</span><br><span class="line"><span class="regexp">//</span>document.writeln(<span class="string">" 是否iPad: "</span>+browser.versions.iPad);</span><br><span class="line"><span class="regexp">//</span>document.writeln(navigator.userAgent);</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2019-03-06T07:26:04.574Z" itemprop="dateUpdated">2019-03-06 15:26:04</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://jiaopianjun.cc">
+            <img src="/img/avatar.gif" alt="Lieme">
+            Lieme
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiaopianjun.cc/2018/09/21/jquery判断手机浏览器版本.html&title=《jquery判断手机浏览器版本》 — 故事胶片&pic=https://jiaopianjun.cc/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2018/09/21/jquery判断手机浏览器版本.html&title=《jquery判断手机浏览器版本》 — 故事胶片&source=用心记录美好的瞬间" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiaopianjun.cc/2018/09/21/jquery判断手机浏览器版本.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《jquery判断手机浏览器版本》 — 故事胶片&url=https://jiaopianjun.cc/2018/09/21/jquery判断手机浏览器版本.html&via=https://jiaopianjun.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiaopianjun.cc/2018/09/21/jquery判断手机浏览器版本.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/09/21/移动端常见布局方式.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">移动端常见布局方式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/09/12/近期待解决技术点.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">近期待解决技术点</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'pianjiao@gmail.com' == 'true',
+            verify: 'true' == 'true',
+            appId: "TWn7ScRql8E7o3XSclzuzqHv-gzGzoHsz",
+            appKey: "YwgPLTEdtePf3yTQx4iXewoF",
+            avatar: "mm/identicon/monsterid/wavatar/retro/robohash",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="http://upload-images.jianshu.io/upload_images/1251988-b06de6cce1ee9b14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="http://upload-images.jianshu.io/upload_images/1251988-b06de6cce1ee9b14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720" data-alipay="http://upload-images.jianshu.io/upload_images/1251988-926d37b96c5affe0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+            <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        
+            <p>
+
+                
+            </p>
+        
+    </div>
+    <div class="bottom">
+        <p><span>Lieme &copy; 2018 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18048410号-1</a><br>
+                
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiaopianjun.cc/2018/09/21/jquery判断手机浏览器版本.html&title=《jquery判断手机浏览器版本》 — 故事胶片&pic=https://jiaopianjun.cc/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2018/09/21/jquery判断手机浏览器版本.html&title=《jquery判断手机浏览器版本》 — 故事胶片&source=用心记录美好的瞬间" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiaopianjun.cc/2018/09/21/jquery判断手机浏览器版本.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《jquery判断手机浏览器版本》 — 故事胶片&url=https://jiaopianjun.cc/2018/09/21/jquery判断手机浏览器版本.html&via=https://jiaopianjun.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiaopianjun.cc/2018/09/21/jquery判断手机浏览器版本.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuUlEQVR42u3ay47bQAwEwP3/n3aAnHKIV93kzD6A0skwbEklAUOihx8f8fH6e8y+f/1zJOd/99/Pz7A68PDw8Ea3/u54x0i+ScDvrpV/8/AI8PDw8K7x8sW6LQ/5w8ofaFGo8PDw8L6Vl1zy81/OGms8PDy838tLqFGbG5w//4yHh4f3Xbw8IMhb7bxgtMXmStaCh4eH163SxQbYT/h8cX8PDw8Pb7Gr3paK9vKz1ry4Tzw8PLwLvDxgbZvgWUPcbqpFBQMPDw/vMm8z8LQZJtiUjYcXgIeHh3eUlzDyGLelJmWpHUH4z3vDw8PDu8DLB6Ha5bsNI/KHGIHx8PDwLvDqAabF9/tQOB8ywMPDw7vHO3vhU0NRsxji2DQZHh4eXtzl5svubMu/jRhmYwpF9cPDw8Nb8DZhxNlNsnzjrQgm8PDw8I7y6kg0/k1y+XzzLH9MD+8NDw8Pb81LfpT8eRZqbIYD6mEsPDw8vEO89pL5uEDbpufIosnGw8PDu8BLmuZ8Ed8s5Ul0uxlfwMPDwzvFS5rg2RI8C23bAlO31Hh4eHhrXpJ2zraykhvd3Hr+GvDw8PDO8vJm92xzvG++oxYcDw8P7xpvE+m2LXJbNjblBA8PD+8eb3O7eQGYDVrNmn48PDy8e7xZAPGQZ5TbV6fO/PAO8fDw8I7y2iZ4Fi7MQuF9o4+Hh4d3g9cuxPlGVNJMz269eNB4eHh413jJDdVBahw6JNFDG0nj4eHh3eC9yqONDzZRbP443hYSPDw8vAu8dnFvL9PWqLMtOx4eHt493qYYJAt0EtduWvAijMDDw8M7ypttic0GBdptsDzseJiMwMPDw/sBvHwR30TDV/b38PDw8L6Et2mLN41yfmY8PDy8r+Qli3ixHC+y5H2Mi4eHh3ebt9+yyh/WbBwhL0tDJB4eHl7K+wO5mdpPlLe2NQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '404 --- (。>︿<)_θ';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</html>

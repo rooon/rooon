@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65975979"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
+    
+    
+    
+    <meta name="google-site-verification" content="JlTZ59Yi1jt_DCjDtIp1uJbX_ilLr122BLomvGlZwuU">
+    
+    <title>map,filter,forEach的区别和用法 | 故事胶片</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="数组">
+    <meta name="description" content="map map() 方法创建一个新数组，其结果是该数组都执行一次函数，原函数保持不变。  12345var a = [1,2,3,5,4,8,6,3,2]var newa = a.map(x =&amp;gt;&amp;#123;  return x + 1&amp;#125;)newa // [2,3,4,5,9,7,4,3] 对新数组进行加1赋值 forEach forEach() 方法对数组的每一个元素执行一次提供">
+<meta name="keywords" content="数组">
+<meta property="og:type" content="article">
+<meta property="og:title" content="map,filter,forEach的区别和用法">
+<meta property="og:url" content="https://jiaopianjun.cc/2018/12/03/map-filter-forEach的区别和用法.html">
+<meta property="og:site_name" content="故事胶片">
+<meta property="og:description" content="map map() 方法创建一个新数组，其结果是该数组都执行一次函数，原函数保持不变。  12345var a = [1,2,3,5,4,8,6,3,2]var newa = a.map(x =&amp;gt;&amp;#123;  return x + 1&amp;#125;)newa // [2,3,4,5,9,7,4,3] 对新数组进行加1赋值 forEach forEach() 方法对数组的每一个元素执行一次提供">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-09T13:28:00.893Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="map,filter,forEach的区别和用法">
+<meta name="twitter:description" content="map map() 方法创建一个新数组，其结果是该数组都执行一次函数，原函数保持不变。  12345var a = [1,2,3,5,4,8,6,3,2]var newa = a.map(x =&amp;gt;&amp;#123;  return x + 1&amp;#125;)newa // [2,3,4,5,9,7,4,3] 对新数组进行加1赋值 forEach forEach() 方法对数组的每一个元素执行一次提供">
+    
+        <link rel="alternate" type="application/atom+xml" title="故事胶片" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.gif">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Lieme</h5>
+          <a href="mailto:pianjiao@gmail.com" title="pianjiao@gmail.com" class="mail">pianjiao@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags/">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/photos">
+                <i class="icon icon-lg icon-camera"></i>
+                Photos
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jiaopianjun" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://write.rooon.co" target="_blank">
+                <i class="icon icon-lg icon-book"></i>
+                Note
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links">
+                <i class="icon icon-lg icon-unlink"></i>
+                Links
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+            <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <span id="jinrishici-sentence">正在加载今日诗词....</span>
+        <div class="flex-col header-title ellipsis">map,filter,forEach的区别和用法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">map,filter,forEach的区别和用法</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-03T08:52:00.000Z" itemprop="datePublished" class="page-time">
+  2018-12-03
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#map"><span class="post-toc-number">1.</span> <span class="post-toc-text">map</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#forEach"><span class="post-toc-number">2.</span> <span class="post-toc-text">forEach</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#filter"><span class="post-toc-number">3.</span> <span class="post-toc-text">filter</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#some"><span class="post-toc-number">4.</span> <span class="post-toc-text">some</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#every"><span class="post-toc-number">5.</span> <span class="post-toc-text">every</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#reduce"><span class="post-toc-number">6.</span> <span class="post-toc-text">reduce</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-map-filter-forEach的区别和用法" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">map,filter,forEach的区别和用法</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-12-03 16:52:00" datetime="2018-12-03T08:52:00.000Z" itemprop="datePublished">2018-12-03</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content clearfix" id="post-content" itemprop="postContent">
+            <h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><blockquote>
+<p>map() 方法创建一个新数组，其结果是该数组都执行一次函数，原函数保持不变。</p>
+</blockquote>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">2</span>]</span><br><span class="line">var newa = a.map(x =&gt;&#123;</span><br><span class="line">  return x + <span class="number">1</span></span><br><span class="line">&#125;)</span><br><span class="line">newa <span class="comment">// [2,3,4,5,9,7,4,3] 对新数组进行加1赋值</span></span><br></pre></td></tr></table></figure>
+<h4 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h4><blockquote>
+<p>forEach() 方法对数组的每一个元素执行一次提供的函数。</p>
+</blockquote>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">2</span>]</span><br><span class="line">var newa = a.forEach((item,index)=&gt;&#123;</span><br><span class="line">  return item +<span class="number">1</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//遍历所有值</span></span><br></pre></td></tr></table></figure>
+<h4 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h4><blockquote>
+<p>   filter() 方法使指定函数测试数组的每一个元素，并返回一个通过元素的新数组。</p>
+</blockquote>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">2</span>]</span><br><span class="line">var newa = a.filter(x=&gt;&#123;</span><br><span class="line">  return x &gt; <span class="number">1</span></span><br><span class="line">&#125;)</span><br><span class="line">newa <span class="comment">// [2,3,5,4,8,6,3,2]  用于过滤大于1 的</span></span><br></pre></td></tr></table></figure>
+<h4 id="some"><a href="#some" class="headerlink" title="some"></a>some</h4><blockquote>
+<p>some() 方法测试该数组只要有元素通过了指定函数的测试，如果有返回true，否则，返回false。</p>
+</blockquote>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = [<span class="number">1</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">10</span>]</span><br><span class="line">var newa = a.some(x=&gt;&#123;</span><br><span class="line">		return x &gt; <span class="number">10</span></span><br><span class="line">&#125;)</span><br><span class="line">true <span class="comment">// 判断a中是否有大于10 的值有则true 无则 false</span></span><br></pre></td></tr></table></figure>
+<h4 id="every"><a href="#every" class="headerlink" title="every"></a>every</h4><blockquote>
+<p>every() 方法测试该数组是否全部通过指定函数测试，全部通过返回true，否则，返回false</p>
+</blockquote>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = [<span class="number">1</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">10</span>]</span><br><span class="line">var newa = a.every(x=&gt;&#123;</span><br><span class="line">  return x &gt; <span class="number">10</span></span><br><span class="line">&#125;)</span><br><span class="line">false <span class="comment">// 判断a中是否都大于10 的值是则true 无则 false</span></span><br></pre></td></tr></table></figure>
+<h4 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h4><blockquote>
+<p>reduce() 接受一个函数作为累加器，依次加上数组的当前元素。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> <span class="selector-tag">a</span> = [<span class="number">1</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">10</span>]</span><br><span class="line"><span class="selector-tag">var</span> newa = <span class="selector-tag">a</span>.reduce((x,i)=&gt;&#123;</span><br><span class="line">  return x + i</span><br><span class="line">&#125;)</span><br><span class="line"><span class="number">41</span> <span class="comment">//累加数组中的值</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2019-04-09T13:28:00.893Z" itemprop="dateUpdated">2019-04-09 21:28:00</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://jiaopianjun.cc">
+            <img src="/img/avatar.gif" alt="Lieme">
+            Lieme
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组/">数组</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiaopianjun.cc/2018/12/03/map-filter-forEach的区别和用法.html&title=《map,filter,forEach的区别和用法》 — 故事胶片&pic=https://jiaopianjun.cc/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2018/12/03/map-filter-forEach的区别和用法.html&title=《map,filter,forEach的区别和用法》 — 故事胶片&source=用心记录美好的瞬间" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiaopianjun.cc/2018/12/03/map-filter-forEach的区别和用法.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《map,filter,forEach的区别和用法》 — 故事胶片&url=https://jiaopianjun.cc/2018/12/03/map-filter-forEach的区别和用法.html&via=https://jiaopianjun.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiaopianjun.cc/2018/12/03/map-filter-forEach的区别和用法.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/12/12/页面得重绘与回流.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">页面的重绘（repaint）与回流（reflow）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/30/JQ获取图片的实际尺寸.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JQ获取图片的实际尺寸</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'pianjiao@gmail.com' == 'true',
+            verify: 'true' == 'true',
+            appId: "TWn7ScRql8E7o3XSclzuzqHv-gzGzoHsz",
+            appKey: "YwgPLTEdtePf3yTQx4iXewoF",
+            avatar: "mm/identicon/monsterid/wavatar/retro/robohash",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="http://upload-images.jianshu.io/upload_images/1251988-b06de6cce1ee9b14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="http://upload-images.jianshu.io/upload_images/1251988-b06de6cce1ee9b14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720" data-alipay="http://upload-images.jianshu.io/upload_images/1251988-926d37b96c5affe0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+            <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        
+            <p>
+
+                
+            </p>
+        
+    </div>
+    <div class="bottom">
+        <p><span>Lieme &copy; 2018 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18048410号-1</a><br>
+                
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiaopianjun.cc/2018/12/03/map-filter-forEach的区别和用法.html&title=《map,filter,forEach的区别和用法》 — 故事胶片&pic=https://jiaopianjun.cc/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2018/12/03/map-filter-forEach的区别和用法.html&title=《map,filter,forEach的区别和用法》 — 故事胶片&source=用心记录美好的瞬间" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiaopianjun.cc/2018/12/03/map-filter-forEach的区别和用法.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《map,filter,forEach的区别和用法》 — 故事胶片&url=https://jiaopianjun.cc/2018/12/03/map-filter-forEach的区别和用法.html&via=https://jiaopianjun.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiaopianjun.cc/2018/12/03/map-filter-forEach的区别和用法.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtElEQVR42u3bUW4qMQwFUPa/6b4F8IbeaycVH2e+EIxCTiqNje2+XvH183bl97+///TO++unTw9feHh4eOutPy3d3pkz2mNNdoKHh4d3m/e0dPLIbo/gcwjJD/HznvHw8PC+k5cg8xVmq+Hh4eF9P+/zPW0Bok2j8fDw8L6HdyyFjUsPm61fqbXg4eHhdTWBqIv0Pa+v9Pfw8PDw1l31vAibP773gwjFbvHw8PAu8PIHbt7ESgan9sMHxT7x8PDw/oTXNqXyUsKpYFAcBB4eHt5R3uetJ6NRszLr7Djyvb2SvwweHh7eiNcmvm0ZIg8JLWPY38PDw8M7xGvHp2YjBW1qvi9M4OHh4d3jzYaZkjCQfOPm0OsGGB4eHt5R3qy4sBkjaJPjPCl/tbEFDw8Pb8SblRhe5XUj2NRxDw8PD2/B+1xcSNLipK3V3jkb5HqcicDDw8O7zJuNVdVpbhkGEup/VsPDw8O7xpslxPvf+zmsbb8Nm4B4eHh4ow77Zrn98FbSPGsbdXh4eHj3ePsvyJPmfIWzSTweHh7enrcfkGoLsnmxuA0zRa0FDw8Pb9tpGv4DfPuwnmHyokMU6/Dw8PCO8trEty0uzIa02h3i4eHh3ebNSgBtm78dTchDVxES8PDw8A7xZgu1zacEOWuG5eEKDw8P7ywvXzRPl9sB01mbrRgXwMPDw7vGy9tXZwuy9fhUcIh4eHh4t3mbTWwCRhKE2iIvHh4e3j3eT3lt2lRteWJ/cHh4eHg3eG3zftYw22y9fT288PDw8Epenihvxg42IWRV0sXDw8O7xpttIj+I9qE/K0YUH+Ph4eH9IW+WEM+S9fz9Y4EBDw8P7xpvVshojyAvZxwODHh4eHijr58NWiUbattjm8YYHh4e3g3e7Af/pn0121ZSxl319/Dw8PB+5/0D2Nor8JRQ9HAAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '404 --- (。>︿<)_θ';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</html>

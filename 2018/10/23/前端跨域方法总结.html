@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65975979"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
+    
+    
+    
+    <meta name="google-site-verification" content="JlTZ59Yi1jt_DCjDtIp1uJbX_ilLr122BLomvGlZwuU">
+    
+    <title>前端跨域方法总结 | 故事胶片</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="跨域">
+    <meta name="description" content="为什么需要跨域浏览器处于安全的考虑，引入了同源策略。这种策略会对我们页面上执行的js访问资源时进行限制。比如：  不能通过js访问不同源之下页面的DOM结构， 对不同源发送请求也无法获得服务器的相应。 也不能访问不属于同源下的cookie，localstorage等  何为 同源 ：指的是访问的目标url和当前页面的url两者的协议，端口，域名，ip只要有一个不同，则属于不同的源。 常用的跨域方法">
+<meta name="keywords" content="跨域">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端跨域方法总结">
+<meta property="og:url" content="https://jiaopianjun.cc/2018/10/23/前端跨域方法总结.html">
+<meta property="og:site_name" content="故事胶片">
+<meta property="og:description" content="为什么需要跨域浏览器处于安全的考虑，引入了同源策略。这种策略会对我们页面上执行的js访问资源时进行限制。比如：  不能通过js访问不同源之下页面的DOM结构， 对不同源发送请求也无法获得服务器的相应。 也不能访问不属于同源下的cookie，localstorage等  何为 同源 ：指的是访问的目标url和当前页面的url两者的协议，端口，域名，ip只要有一个不同，则属于不同的源。 常用的跨域方法">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-06T07:26:04.586Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端跨域方法总结">
+<meta name="twitter:description" content="为什么需要跨域浏览器处于安全的考虑，引入了同源策略。这种策略会对我们页面上执行的js访问资源时进行限制。比如：  不能通过js访问不同源之下页面的DOM结构， 对不同源发送请求也无法获得服务器的相应。 也不能访问不属于同源下的cookie，localstorage等  何为 同源 ：指的是访问的目标url和当前页面的url两者的协议，端口，域名，ip只要有一个不同，则属于不同的源。 常用的跨域方法">
+    
+        <link rel="alternate" type="application/atom+xml" title="故事胶片" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.gif">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Lieme</h5>
+          <a href="mailto:pianjiao@gmail.com" title="pianjiao@gmail.com" class="mail">pianjiao@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags/">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/photos">
+                <i class="icon icon-lg icon-camera"></i>
+                Photos
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jiaopianjun" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://write.rooon.co" target="_blank">
+                <i class="icon icon-lg icon-book"></i>
+                Note
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links">
+                <i class="icon icon-lg icon-unlink"></i>
+                Links
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+            <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <span id="jinrishici-sentence">正在加载今日诗词....</span>
+        <div class="flex-col header-title ellipsis">前端跨域方法总结</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">前端跨域方法总结</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-10-23T08:01:00.000Z" itemprop="datePublished" class="page-time">
+  2018-10-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Coding/">Coding</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为什么需要跨域"><span class="post-toc-number">1.</span> <span class="post-toc-text">为什么需要跨域</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常用的跨域方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">常用的跨域方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#跨页面通信"><span class="post-toc-number">3.</span> <span class="post-toc-text">跨页面通信</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他跨域问题"><span class="post-toc-number">4.</span> <span class="post-toc-text">其他跨域问题</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="title-前端跨域方法总结" class="post-article article-type-title fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">前端跨域方法总结</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-10-23 16:01:00" datetime="2018-10-23T08:01:00.000Z" itemprop="datePublished">2018-10-23</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Coding/">Coding</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content clearfix" id="post-content" itemprop="postContent">
+            <h3 id="为什么需要跨域"><a href="#为什么需要跨域" class="headerlink" title="为什么需要跨域"></a>为什么需要跨域</h3><p>浏览器处于安全的考虑，引入了同源策略。这种策略会对我们页面上执行的js访问资源时进行限制。<br>比如：</p>
+<ol>
+<li>不能通过js访问不同源之下页面的DOM结构，</li>
+<li>对不同源发送请求也无法获得服务器的相应。</li>
+<li>也不能访问不属于同源下的cookie，localstorage等</li>
+</ol>
+<p>何为 <strong>同源</strong> ：指的是访问的目标url和当前页面的url两者的协议，端口，域名，ip只要有一个不同，则属于不同的源。</p>
+<h3 id="常用的跨域方法"><a href="#常用的跨域方法" class="headerlink" title="常用的跨域方法"></a>常用的跨域方法</h3><p>1、CORS 跨域资源共享。通过设置请求方法的请求头，来实现跨域</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Access</span>-Control-Allow-Origin</span><br><span class="line"><span class="keyword">Access</span>-Control-Allow-Methods：对客户端回应服务器支持的请求方法列表；</span><br><span class="line"><span class="keyword">Access</span>-Control-Allow-Headers：对客户端回应服务器支持的Header；</span><br></pre></td></tr></table></figure>
+<p>2、JSONP 但是只能用于get请求</p>
+<p>3、Cookie跨域共享</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>配置服务端返回的 <span class="built_in">Set</span>-Cookie响应头</span><br><span class="line"><span class="number">2.</span>在页面上的JavaScript代码中通过<span class="built_in">document</span>.cookie，直接设置<span class="built_in">document</span>.cookie为我们需要存储的内容。</span><br><span class="line">例如：</span><br><span class="line"><span class="built_in">document</span>.cookie=<span class="string">"name=Jack;path=/"</span></span><br><span class="line"><span class="built_in">document</span>.cookie=<span class="string">"age=25;path=/"</span> <span class="comment">// cookie中会同时保存name和age这两个字段</span></span><br></pre></td></tr></table></figure>
+<h3 id="跨页面通信"><a href="#跨页面通信" class="headerlink" title="跨页面通信"></a>跨页面通信</h3><p>1、document.domian</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、两个页面所在的源是一样的，可以直接通信，但是如果两个页面所在的域名相同，但是端口不同或者其他情况，那么两个页面仍需要设置相同的<span class="built_in">document</span>.domain,否则还是会被浏览器block掉</span><br><span class="line"><span class="number">2</span>、需要在前入的iframe加载完成之后才能和其加载的子页面进行通信，否则拿到的值可能还是<span class="literal">undefined</span></span><br></pre></td></tr></table></figure>
+<p>2、window对象name属性</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">浏览器具有这样一个特性：同一个标签页或者同一个iframe框架加载过的页面共享相同的window.<span class="built_in">name</span>属性值，意味着只要是在同一个标签页里面打开过的页面（不管是否同源），这些页面上的window.<span class="built_in">name</span>属性值都是相同的。利用这一特性在不同页面作为传递数据的介质</span><br></pre></td></tr></table></figure>
+<p>3、HTML5 cross-document message</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">html5中引入了另外一种跨页面通信的方式：跨文档消息传送。同样可以实现主页面和嵌入的iframe子页面（或者由当前页面打开的页面）之间完成数据的传递，另外这种方法也可以用于当前JavaScript引擎线程和其他worker线程之间完成数据交换。如果是与iframe加载的子页面进行通信，则需要先获取到接收数据的目标页面的<span class="built_in">window</span>对象，通过该对象的postMessage方法可以向目标页面发送数据。</span><br></pre></td></tr></table></figure>
+<p>4、locakStorage</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage是HTML5引入的客户端存储方案，通过localStorage存储的内容会一直保存在客户端，除非调用<span class="built_in">removeItem</span>方法显式移除，否则内容将永久保留。</span><br></pre></td></tr></table></figure>
+<h3 id="其他跨域问题"><a href="#其他跨域问题" class="headerlink" title="其他跨域问题"></a>其他跨域问题</h3><p>1、跨域脚本错误处理</p>
+<p>对于页面上加载的跨域脚本执行出错，页面上绑定的错误处理函数window.onerror在默认情况下是获取不到具体的错误信息的，这时候需要在加载跨域脚本的标签上使用crossorigin属性，也就是在请求跨域脚本的时候执行CORS。crossorigin属性可以设置的值有：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">anonymous：请求脚本的时候不会携带凭据</span><br><span class="line"><span class="keyword">use</span>-credentials：请求脚本的时候携带凭据</span><br></pre></td></tr></table></figure>
+<p>设置为其他值都会被看作是anonymous关键字。设置了crossorigin属性意味着还需要对服务器进行配置，使其支持CORS。如果服务端没有正确配置CORS，跨域脚本是无法正常下载的。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2019-03-06T07:26:04.586Z" itemprop="dateUpdated">2019-03-06 15:26:04</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://jiaopianjun.cc">
+            <img src="/img/avatar.gif" alt="Lieme">
+            Lieme
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/跨域/">跨域</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiaopianjun.cc/2018/10/23/前端跨域方法总结.html&title=《前端跨域方法总结》 — 故事胶片&pic=https://jiaopianjun.cc/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2018/10/23/前端跨域方法总结.html&title=《前端跨域方法总结》 — 故事胶片&source=用心记录美好的瞬间" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiaopianjun.cc/2018/10/23/前端跨域方法总结.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端跨域方法总结》 — 故事胶片&url=https://jiaopianjun.cc/2018/10/23/前端跨域方法总结.html&via=https://jiaopianjun.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiaopianjun.cc/2018/10/23/前端跨域方法总结.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/10/23/history对象和HTML5-History-API.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">history对象和HTML5 History API</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/10/10/js中的各种width和height.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">js中的各种width，height</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'pianjiao@gmail.com' == 'true',
+            verify: 'true' == 'true',
+            appId: "TWn7ScRql8E7o3XSclzuzqHv-gzGzoHsz",
+            appKey: "YwgPLTEdtePf3yTQx4iXewoF",
+            avatar: "mm/identicon/monsterid/wavatar/retro/robohash",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="http://upload-images.jianshu.io/upload_images/1251988-b06de6cce1ee9b14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="http://upload-images.jianshu.io/upload_images/1251988-b06de6cce1ee9b14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720" data-alipay="http://upload-images.jianshu.io/upload_images/1251988-926d37b96c5affe0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+            <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        
+            <p>
+
+                
+            </p>
+        
+    </div>
+    <div class="bottom">
+        <p><span>Lieme &copy; 2018 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18048410号-1</a><br>
+                
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiaopianjun.cc/2018/10/23/前端跨域方法总结.html&title=《前端跨域方法总结》 — 故事胶片&pic=https://jiaopianjun.cc/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2018/10/23/前端跨域方法总结.html&title=《前端跨域方法总结》 — 故事胶片&source=用心记录美好的瞬间" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiaopianjun.cc/2018/10/23/前端跨域方法总结.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端跨域方法总结》 — 故事胶片&url=https://jiaopianjun.cc/2018/10/23/前端跨域方法总结.html&via=https://jiaopianjun.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiaopianjun.cc/2018/10/23/前端跨域方法总结.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtUlEQVR42u3awW4iMRAE0Pz/T2elPUViMVVum7DSmxMKMOPnA92p9tdXfH3/vX6+fryefevx3ce7Je8+e8qBCw8PD29r6etFJ6R8Ke0G5Vv8j/vg4eHhXePlt15/clJIWl6yEjw8PLzf5a3LRnLP9Z2TEoKHh4f3v/Pmbfd66Xh4eHifzGt/+icJ6jzwvZK14OHh4cW8U6HAO19fn+/h4eHhbU3Vk2vd+O4dDjh14eHh4d3g5f/8J5Fr+5k1Po8kXhQPPDw8vKO8vUB2/joPfBNS0VLj4eHhjXntYabkMW0gm29H3nbj4eHh3ePlhwbagVlbitqtjMoGHh4e3gVeO2TaY7SA/PjCZtaCh4eHN+C1kUFy0zaSWI/KJoM0PDw8vHu8NlTdO5iVl5NJFIKHh4f3Tt7eMYL8W+3i8sY6Kgx4eHh4R3n52KldxF7MMb82p2p4eHh4MW/STOcPa+9Tp9FthcHDw8Pb4q1b0skPfRK85mvYi5vx8PDw7vHyH+X2M5M2ug2LXxy6wsPDwzvKa0f7ebzbts7twYLkmAIeHh7ePd6paDUf/M9Hbm1RwcPDw3sPL/lLvsQ2aJiULjw8PLwbvL1xVDuamkS3k2gDDw8P7wYvX/SpypNvx/oOeYHBw8PDO8tLDkgluzL/5F77vjnZw8PDwxvw8sF8GxnshbCTMRseHh7ee3htnLoHnh8dWBeSp0/Ew8PDu8DLrxbTNs2T41PJs/Dw8PBO8fYOVLVDqb09XjfN0Xrw8PDwLvD2CkMbquYPzlvnw002Hh4eXslri8EavBfd7m1ZVGbw8PDwrvEmP9Nna1HbHL8oP3h4eHgfw1sz8mLTbkd+mAAPDw/vE3htMDGJJJJNwcPDw/tdXhtGzNvidjy2V2Dw8PDwbvDaAViLT8b88/b62NEBPDw8vBXvD6M7+T4fLTfPAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '404 --- (。>︿<)_θ';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</html>

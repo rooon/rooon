@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65975979"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
+    
+    
+    
+    <meta name="google-site-verification" content="JlTZ59Yi1jt_DCjDtIp1uJbX_ilLr122BLomvGlZwuU">
+    
+    <title>css 笔记整理 | 故事胶片</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="css,笔记">
+    <meta name="description" content="#  ~选择器：查找某一个元素后面的所有兄弟元素例如     .test~.name{background:red} +选择器：查找某一个元素后面紧邻的兄弟元素例如     .test+.name{background:red} 用 font-size ：0 来清除边距不要忘记给子元素设置字号 用overflow清除浮动.clearfix{   overflow：hidden      } .cl">
+<meta name="keywords" content="css,笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css 笔记整理">
+<meta property="og:url" content="https://jiaopianjun.cc/2017/09/22/CSS整理.html">
+<meta property="og:site_name" content="故事胶片">
+<meta property="og:description" content="#  ~选择器：查找某一个元素后面的所有兄弟元素例如     .test~.name{background:red} +选择器：查找某一个元素后面紧邻的兄弟元素例如     .test+.name{background:red} 用 font-size ：0 来清除边距不要忘记给子元素设置字号 用overflow清除浮动.clearfix{   overflow：hidden      } .cl">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-06T07:26:04.521Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css 笔记整理">
+<meta name="twitter:description" content="#  ~选择器：查找某一个元素后面的所有兄弟元素例如     .test~.name{background:red} +选择器：查找某一个元素后面紧邻的兄弟元素例如     .test+.name{background:red} 用 font-size ：0 来清除边距不要忘记给子元素设置字号 用overflow清除浮动.clearfix{   overflow：hidden      } .cl">
+    
+        <link rel="alternate" type="application/atom+xml" title="故事胶片" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.gif">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Lieme</h5>
+          <a href="mailto:pianjiao@gmail.com" title="pianjiao@gmail.com" class="mail">pianjiao@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags/">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/photos">
+                <i class="icon icon-lg icon-camera"></i>
+                Photos
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jiaopianjun" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://write.rooon.co" target="_blank">
+                <i class="icon icon-lg icon-book"></i>
+                Note
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links">
+                <i class="icon icon-lg icon-unlink"></i>
+                Links
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+            <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <span id="jinrishici-sentence">正在加载今日诗词....</span>
+        <div class="flex-col header-title ellipsis">css 笔记整理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">css 笔记整理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-09-22T09:16:08.000Z" itemprop="datePublished" class="page-time">
+  2017-09-22
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Coding/">Coding</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#选择器：查找某一个元素后面的所有兄弟元素"><span class="post-toc-number">1.</span> <span class="post-toc-text">#  ~选择器：查找某一个元素后面的所有兄弟元素</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#选择器：查找某一个元素后面紧邻的兄弟元素"><span class="post-toc-number">2.</span> <span class="post-toc-text">+选择器：查找某一个元素后面紧邻的兄弟元素</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#用-font-size-：0-来清除边距"><span class="post-toc-number">3.</span> <span class="post-toc-text">用 font-size ：0 来清除边距</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#用overflow清除浮动"><span class="post-toc-number">4.</span> <span class="post-toc-text">用overflow清除浮动</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#clearfix清除浮动"><span class="post-toc-number">5.</span> <span class="post-toc-text">.clearfix清除浮动</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#用border-来绘制三角形"><span class="post-toc-number">6.</span> <span class="post-toc-text">用border 来绘制三角形</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#利用padding实现等比例缩放的盒子"><span class="post-toc-number">7.</span> <span class="post-toc-text">利用padding实现等比例缩放的盒子</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#利用pointer-events禁用事件-光标变成default-阻止-hover和hover-以及-JavaScript-点击事件的触发"><span class="post-toc-number">8.</span> <span class="post-toc-text">利用pointer-events禁用事件  光标变成default  阻止 hover和hover  以及  JavaScript 点击事件的触发</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#利用-max-width-防止图片撑破容器"><span class="post-toc-number">9.</span> <span class="post-toc-text">利用 max-width  防止图片撑破容器</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#利用伪类在打印时候显示a标签的链接"><span class="post-toc-number">10.</span> <span class="post-toc-text">利用伪类在打印时候显示a标签的链接</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#未知高度容器的多种垂直居中方法"><span class="post-toc-number">11.</span> <span class="post-toc-text">未知高度容器的多种垂直居中方法</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#伪类和伪元素的区别"><span class="post-toc-number">12.</span> <span class="post-toc-text">伪类和伪元素的区别</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="title-CSS整理" class="post-article article-type-title fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">css 笔记整理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-09-22 17:16:08" datetime="2017-09-22T09:16:08.000Z" itemprop="datePublished">2017-09-22</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Coding/">Coding</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content clearfix" id="post-content" itemprop="postContent">
+            <h5 id="选择器：查找某一个元素后面的所有兄弟元素"><a href="#选择器：查找某一个元素后面的所有兄弟元素" class="headerlink" title="#  ~选择器：查找某一个元素后面的所有兄弟元素"></a>#  ~选择器：查找某一个元素后面的所有兄弟元素</h5><pre><code>例如     .test~.name{background:red}
+</code></pre><h5 id="选择器：查找某一个元素后面紧邻的兄弟元素"><a href="#选择器：查找某一个元素后面紧邻的兄弟元素" class="headerlink" title="+选择器：查找某一个元素后面紧邻的兄弟元素"></a>+选择器：查找某一个元素后面紧邻的兄弟元素</h5><pre><code>例如     .test+.name{background:red}
+</code></pre><h5 id="用-font-size-：0-来清除边距"><a href="#用-font-size-：0-来清除边距" class="headerlink" title="用 font-size ：0 来清除边距"></a>用 font-size ：0 来清除边距</h5><pre><code>不要忘记给子元素设置字号
+</code></pre><h5 id="用overflow清除浮动"><a href="#用overflow清除浮动" class="headerlink" title="用overflow清除浮动"></a>用overflow清除浮动</h5><pre><code>.clearfix{
+  overflow：hidden  
+</code></pre><p>   }</p>
+<h5 id="clearfix清除浮动"><a href="#clearfix清除浮动" class="headerlink" title=".clearfix清除浮动"></a>.clearfix清除浮动</h5><pre><code>.clearfix{
+   display:block
+   clear:both;
+   content:&apos;&apos;;
+}
+</code></pre><h5 id="用border-来绘制三角形"><a href="#用border-来绘制三角形" class="headerlink" title="用border 来绘制三角形"></a>用border 来绘制三角形</h5><pre><code>  .border{
+      width:50px;
+      height:50px;
+      border:40px solie;
+      border-left-color:red;
+      border-right-color:yellow;
+      border-top-color:blue;
+      border-bottom-color:green;
+}
+  .border{
+      width:0;
+      height:0;
+      border-width:40px;
+      border-color:transparent transparent yellow trasparent;
+  }
+
+  梯形
+  .border{
+      width:20px;
+      height:0;
+      border-width:40px;
+      border-color:transparent transparent yellow trasparent;
+  }
+</code></pre><h5 id="利用padding实现等比例缩放的盒子"><a href="#利用padding实现等比例缩放的盒子" class="headerlink" title="利用padding实现等比例缩放的盒子"></a>利用padding实现等比例缩放的盒子</h5><pre><code>最外层容器{
+    display:flex;
+    display:-webkit-box;
+    display:flex-box;
+    -ms-flex-wrap:wrap;
+        flex-wrap:warp;
+}
+最外层容器 &gt; 子元素{
+    flex-basis:25%;
+}
+最外层容器 &gt; 子元素 &gt; 父元素{
+    width:100%;
+    padding-top:75%;
+    position:relative;
+}
+最外层容器 &gt; 子元素 &gt; 父元素 &gt; 子元素{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+}
+</code></pre><h5 id="利用pointer-events禁用事件-光标变成default-阻止-hover和hover-以及-JavaScript-点击事件的触发"><a href="#利用pointer-events禁用事件-光标变成default-阻止-hover和hover-以及-JavaScript-点击事件的触发" class="headerlink" title="利用pointer-events禁用事件  光标变成default  阻止 hover和hover  以及  JavaScript 点击事件的触发"></a>利用pointer-events禁用事件  光标变成default  阻止 hover和hover  以及  JavaScript 点击事件的触发</h5><pre><code>pointer-events:none;
+</code></pre><h5 id="利用-max-width-防止图片撑破容器"><a href="#利用-max-width-防止图片撑破容器" class="headerlink" title="利用 max-width  防止图片撑破容器"></a>利用 max-width  防止图片撑破容器</h5><pre><code>img{
+    max-width：100%；
+    display：inline-block;
+}
+</code></pre><h5 id="利用伪类在打印时候显示a标签的链接"><a href="#利用伪类在打印时候显示a标签的链接" class="headerlink" title="利用伪类在打印时候显示a标签的链接"></a>利用伪类在打印时候显示a标签的链接</h5><pre><code>.a[href]:after{
+    content:&quot;(&quot; attr(href) &quot;)&quot;
+}
+</code></pre><h5 id="未知高度容器的多种垂直居中方法"><a href="#未知高度容器的多种垂直居中方法" class="headerlink" title="未知高度容器的多种垂直居中方法"></a>未知高度容器的多种垂直居中方法</h5><pre><code>第一种   flex  + margin:auto
+父元素{
+    display：flex;
+}
+子元素{
+    margin：auto；
+}
+
+第二种 元素占位方案 利用display：inline-block  和伪元素
+父元素{
+    text-align:center;
+    font-size:0;
+}
+父元素::before , 子元素{
+    display:inline-block;
+    vertical-align:middle
+}
+父元素::before{
+    content:&apos;&apos;;
+    height:100%;
+}
+
+第三种 absolute + transform
+父元素{
+    position：relative；
+    text-align:center
+}
+子元素{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transfrom:translate(-50%,-50%);
+}
+
+第四种 table-cell  缺点  需要在子元素上额外套一层div
+父元素{
+    display:table;
+}
+父元素 &gt; 二层元素{
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center
+}
+父元素 &gt; 二层元素 &gt; 子元素{
+    display:inline-block;
+}
+
+第四种 flex  flex盒模型是最佳事项方案  有两种方案
+  第一种方案
+  父元素{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+  }
+  第二种方案
+  父元素{
+      display：flex;
+      margin:0;
+  }
+  父元素 &gt; 子元素{
+      margin:auto;
+  }
+
+  用counter 来模拟/装饰 有序清单
+  父元素{
+      counter-reset:decimal;
+      list-style-type:none;
+  }
+  父元素 &gt; 子元素{
+      counter-increment：decimal;
+      content:counters(decimal,&quot;.&quot;) &quot; &quot;;
+  }
+
+  用table-layout 来控制table td/th 的宽度
+  table{
+     table-layout：fixed;
+
+  用caret-color 自定义输入框  光标颜色
+  textarea,input,[contenteditable]{
+      creat-color:red;
+  }
+
+  用user-select 禁止选中文本
+  文本{
+      user-select：none;
+  }
+</code></pre><h5 id="伪类和伪元素的区别"><a href="#伪类和伪元素的区别" class="headerlink" title="伪类和伪元素的区别"></a>伪类和伪元素的区别</h5><pre><code>伪类是用： 来表示，伪元素是用：：来表示
+常见的伪类有：
+:hover
+:active
+:focus
+:visited
+:link
+:lang
+:first-child
+:last-child
+:not
+:nth-child
+
+伪元素 就是不存在DOM文档树中的虚拟元素，它们和HTML元素一样，但是你又无法使用javascript去获取
+常见伪元素
+::before
+::after
+::first-letter
+::first-line 
+
+
+用 ：valid  和 ：invalid 来做表单验证
+    html5 提供了类似required Email tel 等表单属性
+    ：required 指定具有required属性的表单元素
+    ：valid 指定一个通过匹配正确的所要求的表单元素
+    ：invalid 指定一个不匹配指定要求的表单元素
+ &lt;input type=&quot;text&quot; required /&gt;   
+ input:vaild{    如果输入文字则变成绿色
+     border:1px solid green;
+     box-shadow:inset 10px 0 0 green;
+ }
+ input:invaild{   如果没有输入则是红色
+     border:1px solid red;
+     box-shadow:inset 10px 0 0 red;
+ }
+
+
+ 用：target来实现折叠面板
+
+
+ 用：not来排除其他选择器
+   ：not([readonly]):not([.disabled]):not([text])  等
+
+ 用：nth-child 来实现各行变色
+   ：nth-child(2n+1){background:red;}
+   : nth-child(2n){backgorund:blue;}
+
+
+ 用 ::selection 来美化选中文本
+    p::selection{
+        background:red;
+        color:green;
+    }
+
+
+ 用 ::placeholder 美化输入框占位符样式
+    ::placeholder{
+        color:Red;
+    }
+
+ 用 ::first-letter 来实现段落首字下沉
+    p::first-letter{
+       font-size:30px;
+       color:Red;
+       padding:20px;
+    }
+
+ 用 ::first-line 来标记段落的第一行
+    p::first-line{
+        color:red;
+    }
+</code></pre>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2019-03-06T07:26:04.521Z" itemprop="dateUpdated">2019-03-06 15:26:04</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://jiaopianjun.cc">
+            <img src="/img/avatar.gif" alt="Lieme">
+            Lieme
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiaopianjun.cc/2017/09/22/CSS整理.html&title=《css 笔记整理》 — 故事胶片&pic=https://jiaopianjun.cc/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2017/09/22/CSS整理.html&title=《css 笔记整理》 — 故事胶片&source=用心记录美好的瞬间" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiaopianjun.cc/2017/09/22/CSS整理.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《css 笔记整理》 — 故事胶片&url=https://jiaopianjun.cc/2017/09/22/CSS整理.html&via=https://jiaopianjun.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiaopianjun.cc/2017/09/22/CSS整理.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/09/22/JS-Array.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">JS Array</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/08/07/科学上网.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">使用 HyperApp，打造一个安全稳定超高速的科学上网环境</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'pianjiao@gmail.com' == 'true',
+            verify: 'true' == 'true',
+            appId: "TWn7ScRql8E7o3XSclzuzqHv-gzGzoHsz",
+            appKey: "YwgPLTEdtePf3yTQx4iXewoF",
+            avatar: "mm/identicon/monsterid/wavatar/retro/robohash",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="http://upload-images.jianshu.io/upload_images/1251988-b06de6cce1ee9b14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="http://upload-images.jianshu.io/upload_images/1251988-b06de6cce1ee9b14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720" data-alipay="http://upload-images.jianshu.io/upload_images/1251988-926d37b96c5affe0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+            <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        
+            <p>
+
+                
+            </p>
+        
+    </div>
+    <div class="bottom">
+        <p><span>Lieme &copy; 2018 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18048410号-1</a><br>
+                
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiaopianjun.cc/2017/09/22/CSS整理.html&title=《css 笔记整理》 — 故事胶片&pic=https://jiaopianjun.cc/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2017/09/22/CSS整理.html&title=《css 笔记整理》 — 故事胶片&source=用心记录美好的瞬间" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiaopianjun.cc/2017/09/22/CSS整理.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《css 笔记整理》 — 故事胶片&url=https://jiaopianjun.cc/2017/09/22/CSS整理.html&via=https://jiaopianjun.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiaopianjun.cc/2017/09/22/CSS整理.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3aS5LCMAxFUfa/6fQCIOE+yXSV5esRBSH4ZGD0e73wut7W+6d315N78m+1lgwZMrZlXI+LXHP3w2SLd7/F9yZDhoxzGGQTz9fzK5956R1kyJAhgwd/z/fh25UhQ4aMVYw0sOPJsAwZMmR0kthampoW5n6ei8uQIWNDBq+6///rn/Q3ZMiQsRXjClfaeqw1EuJdyZAhYzSDH3B8Q3zAojaicXulDBkyhjLS4a3nTdcSTn5w374jQ4aMAxi11DEt9/MgMm45yJAh4wBGkCiWWp4kce18S4YMGbMZ8UBDvyhWgqHDXYYMGQcwamMQtYIdL8/xhytDhowTGDylrG26FgLyUFKGDBlTGbXxiNprjo//DGTIkHEAI90KL9mTNBg1Kck/hgwZMoYy+IAFT1871FWJrgwZMiYx+HADbzryR9M5gr/MjMiQIWMco9ZQXBC64TMznhmRIUPGUEanG8iHM/rsD49ShgwZoxlpSJd2R0krtN94kCFDxmmMtJSWlsY6SXIwMyJDhozRDH4spuxOiImGMGTIkHEAg5Te+t1REg6m95EhQ8ZsxhWuzqBGOpYRUGXIkDGa0T8of9EA4OW2GCZDhoxtGWuL9aQNwBPU4HnLkCHjAEatMUnA6TvF5FmGDBkywjZnmqySQPMLVYYMGTLAj5GSGS/zPe8EdWJlyJAxjkECvlojgQ+KkeLdgnKbDBkyNmSkqeOqUYw0TFww8CFDhoz9GH/+vAPxlqGLFQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '404 --- (。>︿<)_θ';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</html>

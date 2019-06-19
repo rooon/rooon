@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65975979"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
+    
+    
+    
+    <meta name="google-site-verification" content="JlTZ59Yi1jt_DCjDtIp1uJbX_ilLr122BLomvGlZwuU">
+    
+    <title>有一个已经排序的数组，比方[1,4,6,9,11,15,18],给你一个新的数，插入到数组中，写一个function | 故事胶片</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="javascript">
+    <meta name="description" content="123456789101112var arr = [1,4,6,9,11,15,18], key = 10function t(arr,key)&amp;#123;  for(var i in arr)&amp;#123;    if(arr[i] &amp;gt; key)&amp;#123;       return arr.splice(i,0,key)    &amp;#125;else&amp;#123;      return ar">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有一个已经排序的数组，比方[1,4,6,9,11,15,18],给你一个新的数，插入到数组中，写一个function">
+<meta property="og:url" content="https://jiaopianjun.cc/2018/06/06/有一个已经排序的数组，比方-1-4-6-9-11-15-18-给你一个新的数，插入到数组中，写一个function.html">
+<meta property="og:site_name" content="故事胶片">
+<meta property="og:description" content="123456789101112var arr = [1,4,6,9,11,15,18], key = 10function t(arr,key)&amp;#123;  for(var i in arr)&amp;#123;    if(arr[i] &amp;gt; key)&amp;#123;       return arr.splice(i,0,key)    &amp;#125;else&amp;#123;      return ar">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-06T07:26:04.624Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="有一个已经排序的数组，比方[1,4,6,9,11,15,18],给你一个新的数，插入到数组中，写一个function">
+<meta name="twitter:description" content="123456789101112var arr = [1,4,6,9,11,15,18], key = 10function t(arr,key)&amp;#123;  for(var i in arr)&amp;#123;    if(arr[i] &amp;gt; key)&amp;#123;       return arr.splice(i,0,key)    &amp;#125;else&amp;#123;      return ar">
+    
+        <link rel="alternate" type="application/atom+xml" title="故事胶片" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.gif">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Lieme</h5>
+          <a href="mailto:pianjiao@gmail.com" title="pianjiao@gmail.com" class="mail">pianjiao@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags/">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/photos">
+                <i class="icon icon-lg icon-camera"></i>
+                Photos
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jiaopianjun" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://write.rooon.co" target="_blank">
+                <i class="icon icon-lg icon-book"></i>
+                Note
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links">
+                <i class="icon icon-lg icon-unlink"></i>
+                Links
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+            <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <span id="jinrishici-sentence">正在加载今日诗词....</span>
+        <div class="flex-col header-title ellipsis">有一个已经排序的数组，比方[1,4,6,9,11,15,18],给你一个新的数，插入到数组中，写一个function</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">有一个已经排序的数组，比方[1,4,6,9,11,15,18],给你一个新的数，插入到数组中，写一个function</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-06-06T07:03:53.000Z" itemprop="datePublished" class="page-time">
+  2018-06-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Coding/">Coding</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-有一个已经排序的数组，比方-1-4-6-9-11-15-18-给你一个新的数，插入到数组中，写一个function" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">有一个已经排序的数组，比方[1,4,6,9,11,15,18],给你一个新的数，插入到数组中，写一个function</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-06-06 15:03:53" datetime="2018-06-06T07:03:53.000Z" itemprop="datePublished">2018-06-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Coding/">Coding</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content clearfix" id="post-content" itemprop="postContent">
+            <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> arr = [<span class="number">1</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">9</span>,<span class="number">11</span>,<span class="number">15</span>,<span class="number">18</span>], <span class="built_in">key</span> = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">function t(arr,<span class="built_in">key</span>)&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="built_in">var</span> i <span class="keyword">in</span> arr)&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr[i] &gt; <span class="built_in">key</span>)&#123;</span><br><span class="line">       <span class="built_in">return</span> arr.<span class="built_in">splice</span>(i,<span class="number">0</span>,<span class="built_in">key</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="built_in">return</span> arr.<span class="built_in">push</span>(<span class="built_in">key</span>) </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2019-03-06T07:26:04.624Z" itemprop="dateUpdated">2019-03-06 15:26:04</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://jiaopianjun.cc">
+            <img src="/img/avatar.gif" alt="Lieme">
+            Lieme
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiaopianjun.cc/2018/06/06/有一个已经排序的数组，比方-1-4-6-9-11-15-18-给你一个新的数，插入到数组中，写一个function.html&title=《有一个已经排序的数组，比方[1,4,6,9,11,15,18],给你一个新的数，插入到数组中，写一个function》 — 故事胶片&pic=https://jiaopianjun.cc/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2018/06/06/有一个已经排序的数组，比方-1-4-6-9-11-15-18-给你一个新的数，插入到数组中，写一个function.html&title=《有一个已经排序的数组，比方[1,4,6,9,11,15,18],给你一个新的数，插入到数组中，写一个function》 — 故事胶片&source=用心记录美好的瞬间" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiaopianjun.cc/2018/06/06/有一个已经排序的数组，比方-1-4-6-9-11-15-18-给你一个新的数，插入到数组中，写一个function.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《有一个已经排序的数组，比方[1,4,6,9,11,15,18],给你一个新的数，插入到数组中，写一个function》 — 故事胶片&url=https://jiaopianjun.cc/2018/06/06/有一个已经排序的数组，比方-1-4-6-9-11-15-18-给你一个新的数，插入到数组中，写一个function.html&via=https://jiaopianjun.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiaopianjun.cc/2018/06/06/有一个已经排序的数组，比方-1-4-6-9-11-15-18-给你一个新的数，插入到数组中，写一个function.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/06/07/HTTP.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Http基础知识</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/06/06/排序.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">排序</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'pianjiao@gmail.com' == 'true',
+            verify: 'true' == 'true',
+            appId: "TWn7ScRql8E7o3XSclzuzqHv-gzGzoHsz",
+            appKey: "YwgPLTEdtePf3yTQx4iXewoF",
+            avatar: "mm/identicon/monsterid/wavatar/retro/robohash",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="http://upload-images.jianshu.io/upload_images/1251988-b06de6cce1ee9b14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="http://upload-images.jianshu.io/upload_images/1251988-b06de6cce1ee9b14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720" data-alipay="http://upload-images.jianshu.io/upload_images/1251988-926d37b96c5affe0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+            <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        
+            <p>
+
+                
+            </p>
+        
+    </div>
+    <div class="bottom">
+        <p><span>Lieme &copy; 2018 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18048410号-1</a><br>
+                
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiaopianjun.cc/2018/06/06/有一个已经排序的数组，比方-1-4-6-9-11-15-18-给你一个新的数，插入到数组中，写一个function.html&title=《有一个已经排序的数组，比方[1,4,6,9,11,15,18],给你一个新的数，插入到数组中，写一个function》 — 故事胶片&pic=https://jiaopianjun.cc/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2018/06/06/有一个已经排序的数组，比方-1-4-6-9-11-15-18-给你一个新的数，插入到数组中，写一个function.html&title=《有一个已经排序的数组，比方[1,4,6,9,11,15,18],给你一个新的数，插入到数组中，写一个function》 — 故事胶片&source=用心记录美好的瞬间" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiaopianjun.cc/2018/06/06/有一个已经排序的数组，比方-1-4-6-9-11-15-18-给你一个新的数，插入到数组中，写一个function.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《有一个已经排序的数组，比方[1,4,6,9,11,15,18],给你一个新的数，插入到数组中，写一个function》 — 故事胶片&url=https://jiaopianjun.cc/2018/06/06/有一个已经排序的数组，比方-1-4-6-9-11-15-18-给你一个新的数，插入到数组中，写一个function.html&via=https://jiaopianjun.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiaopianjun.cc/2018/06/06/有一个已经排序的数组，比方-1-4-6-9-11-15-18-给你一个新的数，插入到数组中，写一个function.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFOElEQVR42u3dQW7bQBAEQP//08o5cER2zyyFACqdjEghl0UDavYs4J+f+PX69co/8/vn63eTNVwfOVlJfl0HXvjw4cOHD9/lId6dOOFrL352wddn3CDma8OHDx8+fPg2fNcc7WeSpeQ3YAaa4CaR6GaF+PDhw4cP30f4ZsXB7LG/rTBmJQU+fPjw4cP3f/LlX/x5/Z18cjMMuIb+aHDBhw8fPnz4ytK85Wtx8+gzKwVm/35g1oEPHz58+PCVu7C+5+dH9vfhw4cPH76v53uVr7z+3jyit+edlfXJ2m408OHDhw8fvolGXZTPNnvlg+08PBUXGf+v2gEfPnz48OEb8W1ixCb6JLdkNoxvI067uQ0fPnz48OFr+doAkY/S23H42TH5ZjSeXMtfjQs+fPjw4cMX8+Vk+UP7bAt4fmPaI7RFQH4ufPjw4cOHr+XLTzA7ff5knUecfdFQ/GZd/3rhw4cPHz58I758JJw//LdH3tyqU2OGep348OHDhw/faJ0zplMleB4vNgFov5vgpqzHhw8fPnz44jF5wrEZY29G73mAaOGS67q5Cnz48OHDh2/NlxcKs0H4/pLagf1mkB81Lvjw4cOHD1/Md6r+nmFtBgCzCr6tBqI148OHDx8+fJPeu/nQKFK0pXlS97/iV378YXzBhw8fPnz4Fnw5x2wLWhuV8pBxthqoSxN8+PDhw4cv6JmfKM3b29NW/HugzW3Dhw8fPnz49nyzbVv51/ymWG8hNlGpiGL48OHDhw/fgi8ZWrcle3vMTYmfjxP2DQA+fPjw4cM348sL8TYEtBvINlvi8u1o++vChw8fPnz4jj4XH/iDi7PSPx/ht1HmiTUUSRAfPnz48OF70znvI8gT9Ps9d/kK8/Piw4cPHz58e7725/ZkySs/bz5Q36y5znr48OHDhw/foibIN5BtHsXb42xi0yyoFcEFHz58+PDhu+Qrvp7LuLMJGe3rubrhJqXgw4cPHz58I77NwHtWyrdRKb/NSSjZ/Foc3i+ADx8+fPi+mC8v0Nu+uv3M5mH+1PGjd/Hhw4cPH77Ju8f+aPHsgTxHyc++X2dRZ+DDhw8fPnwxXx4CTkWH9lyzaJJcYxuqov0F+PDhw4cPX3Clm2L9uSH0Piq1G+xWi8aHDx8+fPhGcPsH71f8OlX0F4PtxY2JIgs+fPjw4cMX5IpZTTD75OwhP7+1eSnQvvv28/jw4cOHD1/Md7P1Ki7f25iSR5+2jMhXsqlLbk6GDx8+fPjwladMltKybsYGs+O3VcIwxuHDhw8fPnwxXwI3K773NUT+AD9DyQPNTU2PDx8+fPjwlXw5Rztg3tT9M46cZhakbqYc+PDhw4cPX8DXDqr3KHlFnqxts4bc4aYywIcPHz58+Lpv8+EX//7Es9F1+0rq+9WAHx8+fPjw4VvwtaX57BG9HcMnA+/ZsD8fS0Q0+PDhw4cP35t/z8NBzjqLI8nYPr8leX2QjPbx4cOHDx++s3yzw+Ub1JJYcGqbWv7uPq7hw4cPHz58e77ZY/w+xOTxJY8mUcke5JBolwE+fPjw4cMX8LWhYRZHcqy2jm+PmdcQsxiHDx8+fPjwJXyzQfKmdt9EhBY3gWvPiw8fPnz48O358lI7H4HPjpZHqOQG5EP0WYDDhw8fPnz4nuZrI0IeFNoo025cm9UEN1eEDx8+fPjwfZAvWVx78e0we3b8TdG/qgzw4cOHDx++MoLsB+T7iiGJRHlZ0L77j+CCDx8+fPjwzY92bBa8H1G3xzxVIrSjfXz48OHDhy/g+wP+2a+/ndYslAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '404 --- (。>︿<)_θ';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</html>

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65975979"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
+    
+    
+    
+    <meta name="google-site-verification" content="JlTZ59Yi1jt_DCjDtIp1uJbX_ilLr122BLomvGlZwuU">
+    
+    <title>重学JavaScript之DOM级别 | 故事胶片</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="JavaScript">
+    <meta name="description" content="JavaScript是一种专门为网页交互而设计的脚本语言，主要由三个不同的部分组成。  1. ECMAScript由ECMA-262 定义，提供核心语言功能 2. 文档对象模型DOM（提供访问和操作网页内容的方法和接口） DOM 是针对于XML和已经扩展用于HTML的应用程序，DOM把整个页面映射为一个多层节点结构，这些节点又包含不同类型的数据，通过DOM的创建，我们可以获得页面的控制权，删除、">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重学JavaScript之DOM级别">
+<meta property="og:url" content="https://jiaopianjun.cc/2019/05/09/重学JavaScript之DOM级别.html">
+<meta property="og:site_name" content="故事胶片">
+<meta property="og:description" content="JavaScript是一种专门为网页交互而设计的脚本语言，主要由三个不同的部分组成。  1. ECMAScript由ECMA-262 定义，提供核心语言功能 2. 文档对象模型DOM（提供访问和操作网页内容的方法和接口） DOM 是针对于XML和已经扩展用于HTML的应用程序，DOM把整个页面映射为一个多层节点结构，这些节点又包含不同类型的数据，通过DOM的创建，我们可以获得页面的控制权，删除、">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-11T14:57:49.532Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="重学JavaScript之DOM级别">
+<meta name="twitter:description" content="JavaScript是一种专门为网页交互而设计的脚本语言，主要由三个不同的部分组成。  1. ECMAScript由ECMA-262 定义，提供核心语言功能 2. 文档对象模型DOM（提供访问和操作网页内容的方法和接口） DOM 是针对于XML和已经扩展用于HTML的应用程序，DOM把整个页面映射为一个多层节点结构，这些节点又包含不同类型的数据，通过DOM的创建，我们可以获得页面的控制权，删除、">
+    
+        <link rel="alternate" type="application/atom+xml" title="故事胶片" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.gif">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Lieme</h5>
+          <a href="mailto:pianjiao@gmail.com" title="pianjiao@gmail.com" class="mail">pianjiao@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags/">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/photos">
+                <i class="icon icon-lg icon-camera"></i>
+                Photos
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jiaopianjun" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://write.rooon.co" target="_blank">
+                <i class="icon icon-lg icon-book"></i>
+                Note
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links">
+                <i class="icon icon-lg icon-unlink"></i>
+                Links
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+            <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <span id="jinrishici-sentence">正在加载今日诗词....</span>
+        <div class="flex-col header-title ellipsis">重学JavaScript之DOM级别</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">重学JavaScript之DOM级别</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-09T13:32:00.000Z" itemprop="datePublished" class="page-time">
+  2019-05-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/重学JS系列/">重学JS系列</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-ECMAScript"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. ECMAScript</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-文档对象模型DOM（提供访问和操作网页内容的方法和接口）"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 文档对象模型DOM（提供访问和操作网页内容的方法和接口）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-DOM级别"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 DOM级别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-1-1-DOM1"><span class="post-toc-number">2.1.0.1.</span> <span class="post-toc-text">2.1.1  DOM1</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-1-2-DOM2"><span class="post-toc-number">2.1.0.2.</span> <span class="post-toc-text">2.1.2  DOM2</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-1-3-DOM3"><span class="post-toc-number">2.1.0.3.</span> <span class="post-toc-text">2.1.3  DOM3</span></a></li></ol></li></ol></li></ol><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-浏览器对象模型（BOM）"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. 浏览器对象模型（BOM）</span></a></li>
+        </nav>
+    </aside>
+
+
+<article id="post-重学JavaScript之DOM级别" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">重学JavaScript之DOM级别</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-09 21:32:00" datetime="2019-05-09T13:32:00.000Z" itemprop="datePublished">2019-05-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/重学JS系列/">重学JS系列</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content clearfix" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>JavaScript是一种专门为网页交互而设计的脚本语言，主要由三个不同的部分组成。</p>
+</blockquote>
+<h2 id="1-ECMAScript"><a href="#1-ECMAScript" class="headerlink" title="1. ECMAScript"></a>1. ECMAScript</h2><p>由ECMA-262 定义，提供核心语言功能</p>
+<h2 id="2-文档对象模型DOM（提供访问和操作网页内容的方法和接口）"><a href="#2-文档对象模型DOM（提供访问和操作网页内容的方法和接口）" class="headerlink" title="2. 文档对象模型DOM（提供访问和操作网页内容的方法和接口）"></a>2. 文档对象模型DOM（提供访问和操作网页内容的方法和接口）</h2><blockquote>
+<p>DOM 是针对于XML和已经扩展用于HTML的应用程序，DOM把整个页面映射为一个多层节点结构，这些节点又包含不同类型的数据，通过DOM的创建，我们可以获得页面的控制权，删除、添加、替换任何节点。</p>
+</blockquote>
+<h3 id="2-1-DOM级别"><a href="#2-1-DOM级别" class="headerlink" title="2.1 DOM级别"></a>2.1 DOM级别</h3><h5 id="2-1-1-DOM1"><a href="#2-1-1-DOM1" class="headerlink" title="2.1.1  DOM1"></a>2.1.1  DOM1</h5><p>由DOM核心和DOM HTML组成， DOM核心规定如何映射基于XML的文档结构，DOM HTML 则在DOM核心的基础上加以扩展，添加针对HTML的对象和方法。</p>
+<h5 id="2-1-2-DOM2"><a href="#2-1-2-DOM2" class="headerlink" title="2.1.2  DOM2"></a>2.1.2  DOM2</h5><p>DOM2在DOM1的基础上增加了 DOM视图、事件、样式、遍历和范围等功能</p>
+<h5 id="2-1-3-DOM3"><a href="#2-1-3-DOM3" class="headerlink" title="2.1.3  DOM3"></a>2.1.3  DOM3</h5><p>DOM3在DOM2的基础上进一步的引入了统一方式加载和文档保存的方法</p>
+<h2 id="3-浏览器对象模型（BOM）"><a href="#3-浏览器对象模型（BOM）" class="headerlink" title="3. 浏览器对象模型（BOM）"></a>3. 浏览器对象模型（BOM）</h2><blockquote>
+<p>BOM 只处理浏览器窗口和框架，提供浏览器交互和方法，以及如下功能：</p>
+</blockquote>
+<ul>
+<li>弹窗新浏览器窗口的功能</li>
+<li>移动、缩放和关闭浏览器窗口的功能</li>
+<li>提供浏览器详细信息的navigator对象</li>
+<li>提供浏览器加载页面信息的对象 location</li>
+<li>提供 显示器分辨率属性 screen</li>
+<li>对 cookie 支持</li>
+<li>对 XMLHttpRequest 和 IE 的 ActiveXObject 自定义对象</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2019-06-11T14:57:49.532Z" itemprop="dateUpdated">2019-06-11 22:57:49</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://jiaopianjun.cc">
+            <img src="/img/avatar.gif" alt="Lieme">
+            Lieme
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiaopianjun.cc/2019/05/09/重学JavaScript之DOM级别.html&title=《重学JavaScript之DOM级别》 — 故事胶片&pic=https://jiaopianjun.cc/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2019/05/09/重学JavaScript之DOM级别.html&title=《重学JavaScript之DOM级别》 — 故事胶片&source=用心记录美好的瞬间" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiaopianjun.cc/2019/05/09/重学JavaScript之DOM级别.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《重学JavaScript之DOM级别》 — 故事胶片&url=https://jiaopianjun.cc/2019/05/09/重学JavaScript之DOM级别.html&via=https://jiaopianjun.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiaopianjun.cc/2019/05/09/重学JavaScript之DOM级别.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/05/14/Node.js 回调函数和事件循环.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Node.js 回调函数和事件循环</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/09/Flex布局入门.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Flex布局入门</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'pianjiao@gmail.com' == 'true',
+            verify: 'true' == 'true',
+            appId: "TWn7ScRql8E7o3XSclzuzqHv-gzGzoHsz",
+            appKey: "YwgPLTEdtePf3yTQx4iXewoF",
+            avatar: "mm/identicon/monsterid/wavatar/retro/robohash",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="http://upload-images.jianshu.io/upload_images/1251988-b06de6cce1ee9b14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="http://upload-images.jianshu.io/upload_images/1251988-b06de6cce1ee9b14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720" data-alipay="http://upload-images.jianshu.io/upload_images/1251988-926d37b96c5affe0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+            <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        
+            <p>
+
+                
+            </p>
+        
+    </div>
+    <div class="bottom">
+        <p><span>Lieme &copy; 2018 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18048410号-1</a><br>
+                
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiaopianjun.cc/2019/05/09/重学JavaScript之DOM级别.html&title=《重学JavaScript之DOM级别》 — 故事胶片&pic=https://jiaopianjun.cc/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2019/05/09/重学JavaScript之DOM级别.html&title=《重学JavaScript之DOM级别》 — 故事胶片&source=用心记录美好的瞬间" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiaopianjun.cc/2019/05/09/重学JavaScript之DOM级别.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《重学JavaScript之DOM级别》 — 故事胶片&url=https://jiaopianjun.cc/2019/05/09/重学JavaScript之DOM级别.html&via=https://jiaopianjun.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiaopianjun.cc/2019/05/09/重学JavaScript之DOM级别.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACs0lEQVR42u3aQY7CMBAEQP7/afa6Ekro9tjAoXJC2UCmvJJt9fjxiK/ny/X//uvn9s79/atntl14eHh449KvGMmdK8z956vSk3reDAEeHh7eMd7VT7fPJE/mg5ssSG/egoeHh/djvHZnm2/Q2yfx8PDwfpnXbm3zAGISfODh4eF9npeXmGyj8+/mC8/xrAUPDw8v5q1tiL/7+Uh/Dw8PD2/cVc8XibzxvzaVP5cuPDw8vBO8djvbDkEL2PUMHh4e3jneJIS9Z8/D2fz41+Xv4OHh4R3grR2fSmC7Dgdsi27x8PDwtvLyiT6JHlpG24SrlyU8PDy8rby1gHW+YOSDkmzrRwkKHh4eXsmbHw5Yi27zv+56Ix4eHt6uN+Zh6FrA2n4rD4KjIcPDw8M7wJtskdcKXSsxrxAPDw/v87y29TU/XtBGuvnhAzw8PLxzvLz0tb/mpbQDURy6wsPDw9vES7a/kyMFk3A2ryH6X+Hh4eFt4rWN/7aR307rbbk1FQ8PD28TL//RtZggaWi1Ta98mcHDw8Pby0vaVGtFJ3daWNt+w8PDwzvBS5aBdppuQ+FdpReRBB4eHt6Y18YEScSQLCR5uZO2GR4eHt5eXjtxt0HtWsyxFgE/5usSHh4eXryZnscB+dGBfJlpG2/1uoeHh4c35uXFTba5a1N/vk2PSsfDw8Pbylv7ifyoVn4UoD12cDlYeHh4eMd47TGptrh2I15M/ffJAx4eHt5W3rO82om+bfPfD3S7tODh4eGd4LUT7tqRqfwAQcLbgMHDw8Mb89rIdbLxXYtr24UBDw8P7zO8/DV50yuPXItyyzrx8PDwfoGXl5IvMGuBcp1S4+Hh4X2Jdy7IyMF5Iw0PDw/vHG+y8Z00pfJjB+238PDw8M7x5vHrWmsqKSgBb+vv4eHh4b1/yx+3J7tgAW4sAgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '404 --- (。>︿<)_θ';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</html>

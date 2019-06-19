@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65975979"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
+    
+    
+    
+    <meta name="google-site-verification" content="JlTZ59Yi1jt_DCjDtIp1uJbX_ilLr122BLomvGlZwuU">
+    
+    <title>Python基础教程之数据类型和变量 | 故事胶片</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python">
+    <meta name="description" content="1. 数据类型 计算机能够处理的各种数值以及文本、图形、音频等。  1.1 整数 python 可以处理任意大小的整数、负整数，写法和数学上一致，但是有的时候可能用十六进制来展示  1 ， 100，-8080 // 十进制 0xff00, 0xa5b4  // 十六进制用0x前缀和0-9，a-f表示 1.2 浮点数 浮点数也就是小数，之所以成为浮点数，是因为浮点数的小数点是可变的。浮点数可以用数学">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python基础教程之数据类型和变量">
+<meta property="og:url" content="https://jiaopianjun.cc/2019/03/20/Python基础教程之数据类型和变量.html">
+<meta property="og:site_name" content="故事胶片">
+<meta property="og:description" content="1. 数据类型 计算机能够处理的各种数值以及文本、图形、音频等。  1.1 整数 python 可以处理任意大小的整数、负整数，写法和数学上一致，但是有的时候可能用十六进制来展示  1 ， 100，-8080 // 十进制 0xff00, 0xa5b4  // 十六进制用0x前缀和0-9，a-f表示 1.2 浮点数 浮点数也就是小数，之所以成为浮点数，是因为浮点数的小数点是可变的。浮点数可以用数学">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-11T15:10:02.491Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python基础教程之数据类型和变量">
+<meta name="twitter:description" content="1. 数据类型 计算机能够处理的各种数值以及文本、图形、音频等。  1.1 整数 python 可以处理任意大小的整数、负整数，写法和数学上一致，但是有的时候可能用十六进制来展示  1 ， 100，-8080 // 十进制 0xff00, 0xa5b4  // 十六进制用0x前缀和0-9，a-f表示 1.2 浮点数 浮点数也就是小数，之所以成为浮点数，是因为浮点数的小数点是可变的。浮点数可以用数学">
+    
+        <link rel="alternate" type="application/atom+xml" title="故事胶片" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.gif">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Lieme</h5>
+          <a href="mailto:pianjiao@gmail.com" title="pianjiao@gmail.com" class="mail">pianjiao@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags/">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/photos">
+                <i class="icon icon-lg icon-camera"></i>
+                Photos
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jiaopianjun" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://write.rooon.co" target="_blank">
+                <i class="icon icon-lg icon-book"></i>
+                Note
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links">
+                <i class="icon icon-lg icon-unlink"></i>
+                Links
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+            <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <span id="jinrishici-sentence">正在加载今日诗词....</span>
+        <div class="flex-col header-title ellipsis">Python基础教程之数据类型和变量</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">Python基础教程之数据类型和变量</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-20T13:36:00.000Z" itemprop="datePublished" class="page-time">
+  2019-03-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python系列/">Python系列</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-数据类型"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 数据类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-1-整数"><span class="post-toc-number">1.0.0.1.</span> <span class="post-toc-text">1.1 整数</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-2-浮点数"><span class="post-toc-number">1.0.0.2.</span> <span class="post-toc-text">1.2 浮点数</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-3-字符串"><span class="post-toc-number">1.0.0.3.</span> <span class="post-toc-text">1.3 字符串</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-4-布尔值"><span class="post-toc-number">1.0.0.4.</span> <span class="post-toc-text">1.4 布尔值</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-5-空值"><span class="post-toc-number">1.0.0.5.</span> <span class="post-toc-text">1.5 空值</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-变量"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-常量"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. 常量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-总结"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. 总结</span></a></li>
+        </nav>
+    </aside>
+
+
+<article id="post-Python基础教程之数据类型和变量" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python基础教程之数据类型和变量</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-20 21:36:00" datetime="2019-03-20T13:36:00.000Z" itemprop="datePublished">2019-03-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python系列/">Python系列</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content clearfix" id="post-content" itemprop="postContent">
+            <h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1. 数据类型"></a>1. 数据类型</h3><blockquote>
+<p>计算机能够处理的各种数值以及文本、图形、音频等。</p>
+</blockquote>
+<h6 id="1-1-整数"><a href="#1-1-整数" class="headerlink" title="1.1 整数"></a>1.1 整数</h6><blockquote>
+<p>python 可以处理任意大小的整数、负整数，写法和数学上一致，但是有的时候可能用十六进制来展示</p>
+</blockquote>
+<pre><code>1 ， 100，-8080 // 十进制
+0xff00, 0xa5b4  // 十六进制用0x前缀和0-9，a-f表示
+</code></pre><h6 id="1-2-浮点数"><a href="#1-2-浮点数" class="headerlink" title="1.2 浮点数"></a>1.2 浮点数</h6><blockquote>
+<p>浮点数也就是小数，之所以成为浮点数，是因为浮点数的小数点是可变的。浮点数可以用数学写法如：1.23， 如果很大或者很小的浮点数，就需要用科学计数法表示，把10 用 e 来代替。整数和浮点数在计算机内部存储的方式是不同的，整数运算永远是精确的，而浮点数可能会四舍五入。</p>
+</blockquote>
+<h6 id="1-3-字符串"><a href="#1-3-字符串" class="headerlink" title="1.3 字符串"></a>1.3 字符串</h6><blockquote>
+<p>字符串是以单引号 或者 双引号 包裹起来的文本。</p>
+</blockquote>
+<h6 id="1-4-布尔值"><a href="#1-4-布尔值" class="headerlink" title="1.4 布尔值"></a>1.4 布尔值</h6><blockquote>
+<p>布尔值和布尔代数的表示完全一致，只有 true flase 两种值，在python 中可以直接用 True False 表示布尔值（注意大小写），也可以通过布尔运算计算出来，布尔值可以通过 and 、 or 、not 运算</p>
+</blockquote>
+<h6 id="1-5-空值"><a href="#1-5-空值" class="headerlink" title="1.5 空值"></a>1.5 空值</h6><blockquote>
+<p>python 中一个特殊的值，用 None表示，但是不能理解为0，None是一个特殊的空值。</p>
+</blockquote>
+<h3 id="2-变量"><a href="#2-变量" class="headerlink" title="2. 变量"></a>2. 变量</h3><blockquote>
+<p>变量的概念和初中代数的方程变量一致，在这里变量不仅可以是数字，还可以是任意数据类型，变量在程序中就是用一个变量名表示了，变量名必须是大小写英文<br>、数字和_下划线的组合，不能数字开头。</p>
+</blockquote>
+<pre><code>a = &apos;ABC&apos;
+python 解释器做了两件事
+    1. 在内存中创建了一个&apos;ABC&apos;的字符串
+    2. 在内存中创建了一个名为a 的变量，并把它指向&apos;ABC&apos;
+</code></pre><h3 id="3-常量"><a href="#3-常量" class="headerlink" title="3. 常量"></a>3. 常量</h3><blockquote>
+<p>常量就是不能变的变量，在Python中，全部大写的变量名表示常量，但是在python中 常量还是能被改变，这点不同于js语言。大写只是一种自我约定的写法。</p>
+</blockquote>
+<h3 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h3><blockquote>
+<p>python 支持多种数据类型，可以把任何数据都看成一个对象，而变量就是在程序中用来指向这些数据对象的，对变量赋值就是把数据和变量联系起来。python中整数没有大小限制，浮点数也没有大小限制，但是超出一定范围就直接表示inf（无限大）</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2019-06-11T15:10:02.491Z" itemprop="dateUpdated">2019-06-11 23:10:02</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://jiaopianjun.cc">
+            <img src="/img/avatar.gif" alt="Lieme">
+            Lieme
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiaopianjun.cc/2019/03/20/Python基础教程之数据类型和变量.html&title=《Python基础教程之数据类型和变量》 — 故事胶片&pic=https://jiaopianjun.cc/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2019/03/20/Python基础教程之数据类型和变量.html&title=《Python基础教程之数据类型和变量》 — 故事胶片&source=用心记录美好的瞬间" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiaopianjun.cc/2019/03/20/Python基础教程之数据类型和变量.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python基础教程之数据类型和变量》 — 故事胶片&url=https://jiaopianjun.cc/2019/03/20/Python基础教程之数据类型和变量.html&via=https://jiaopianjun.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiaopianjun.cc/2019/03/20/Python基础教程之数据类型和变量.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/03/24/ES6入门之字符串的扩展.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">ES6入门之字符串的扩展</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/19/ES6入门之变量的解构赋值.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">ES6入门之变量的解构赋值</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'pianjiao@gmail.com' == 'true',
+            verify: 'true' == 'true',
+            appId: "TWn7ScRql8E7o3XSclzuzqHv-gzGzoHsz",
+            appKey: "YwgPLTEdtePf3yTQx4iXewoF",
+            avatar: "mm/identicon/monsterid/wavatar/retro/robohash",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="http://upload-images.jianshu.io/upload_images/1251988-b06de6cce1ee9b14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="http://upload-images.jianshu.io/upload_images/1251988-b06de6cce1ee9b14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720" data-alipay="http://upload-images.jianshu.io/upload_images/1251988-926d37b96c5affe0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+            <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        
+            <p>
+
+                
+            </p>
+        
+    </div>
+    <div class="bottom">
+        <p><span>Lieme &copy; 2018 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18048410号-1</a><br>
+                
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiaopianjun.cc/2019/03/20/Python基础教程之数据类型和变量.html&title=《Python基础教程之数据类型和变量》 — 故事胶片&pic=https://jiaopianjun.cc/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2019/03/20/Python基础教程之数据类型和变量.html&title=《Python基础教程之数据类型和变量》 — 故事胶片&source=用心记录美好的瞬间" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiaopianjun.cc/2019/03/20/Python基础教程之数据类型和变量.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python基础教程之数据类型和变量》 — 故事胶片&url=https://jiaopianjun.cc/2019/03/20/Python基础教程之数据类型和变量.html&via=https://jiaopianjun.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiaopianjun.cc/2019/03/20/Python基础教程之数据类型和变量.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrUlEQVR42u3aQU7DQAwFUO5/6bJhgQQJ3/YYgvSyqkjbzAtSxv3221t8vG6Pr+/5/Jerb0teJ9924MDDw8NbXnryzmS59++/um6+Zjw8PLxtXv74vr9Acvb+6qe2HDw8PLyn8eaLqy4aDw8P7//y7h/3k5uV4/Hw8PCewMsjhlNJaXJT7m/Q4awFDw8PL+blXaTnvF7p7+Hh4eGNu+rVELbaBks2m946Pz6Lh4eHt8CrlrO9VlY+BJAPGSTrxMPDw9vg/Wb7qrr0ajjyzVk8PDy8NV6vdO5tA1HLKr6tzXwaDw8Pb8DrRQBJwNqLX5MmWbWsx8PDwzvLy5fYix56xXr1Wj+MW+Hh4eGt8XpbRQ9c3Sp6RTYeHh7eBm/+OO6NEUzGFJKzeHh4eHu8Xjnbu3Byp6ujXT+U5nh4eHjLvF77v/dYr24hEWays+Hh4eG1eL1B0t7ZpLWWt+IubxMeHh7eAm/yyJ6U1POgtnAVPDw8vAXevOTNx6SqA1XJrSmU13h4eHhHeZOxqvl2MhnwyrcoPDw8vDnvVDRQDWR7gwL5OvHw8PC2efk2kC9x0h6bjC8UJiPw8PDwWrzqD/4qb1LdJ2MEUSyCh4eHd5SXFKmTYrc3ZFD9/1x+Mx4eHt4CL4lK87I7D2F7I1x5HIyHh4e3zasyqm2tJBquXrcwKICHh4e3xpuUy3momn82Dzvw8PDw/pbXG8PKBw4mowPVoBkPDw9vg/cqHtXNYxJPHGi54eHh4S3w8mM+MtX7hiQEqZbseHh4eHNetfE/iTN65fJoY8DDw8Nb4/Wi2Ek8kbx/EpHg4eHhPYdXbWVVxxTy2CJaCR4eHt4DeHmgMBkySDakKDjGw8PDW+PtNZ/yEat5g+1yMgIPDw/vKK/3g793g6qNsV5wjIeHh7fGewcEinOoEWscBQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '404 --- (。>︿<)_θ';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</html>

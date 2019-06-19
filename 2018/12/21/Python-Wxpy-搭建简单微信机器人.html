@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65975979"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
+    
+    
+    
+    <meta name="google-site-verification" content="JlTZ59Yi1jt_DCjDtIp1uJbX_ilLr122BLomvGlZwuU">
+    
+    <title>Python + Wxpy  搭建简单微信机器人 | 故事胶片</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python,微信机器人">
+    <meta name="description" content="因为之前想过 如果每天早上微信能够发送天气预报给我，给我老婆多好，然后就动手看网上的教程做了一个可以定时发送天气预报的程序， 最近又想到折腾，做了一个更加详细的版本。但是需要主动操作 具体操作看图。                                                                                             4bf724fa">
+<meta name="keywords" content="Python,微信机器人">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python + Wxpy  搭建简单微信机器人">
+<meta property="og:url" content="https://jiaopianjun.cc/2018/12/21/Python-Wxpy-搭建简单微信机器人.html">
+<meta property="og:site_name" content="故事胶片">
+<meta property="og:description" content="因为之前想过 如果每天早上微信能够发送天气预报给我，给我老婆多好，然后就动手看网上的教程做了一个可以定时发送天气预报的程序， 最近又想到折腾，做了一个更加详细的版本。但是需要主动操作 具体操作看图。                                                                                             4bf724fa">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1251988-2e5c2e5ae92517d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1251988-43c40a9d917f2470.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1251988-8b886cd670a2c895.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1251988-3b1091ff1520191b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-03-06T07:26:04.540Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python + Wxpy  搭建简单微信机器人">
+<meta name="twitter:description" content="因为之前想过 如果每天早上微信能够发送天气预报给我，给我老婆多好，然后就动手看网上的教程做了一个可以定时发送天气预报的程序， 最近又想到折腾，做了一个更加详细的版本。但是需要主动操作 具体操作看图。                                                                                             4bf724fa">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1251988-2e5c2e5ae92517d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+        <link rel="alternate" type="application/atom+xml" title="故事胶片" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.gif">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Lieme</h5>
+          <a href="mailto:pianjiao@gmail.com" title="pianjiao@gmail.com" class="mail">pianjiao@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags/">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/photos">
+                <i class="icon icon-lg icon-camera"></i>
+                Photos
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jiaopianjun" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://write.rooon.co" target="_blank">
+                <i class="icon icon-lg icon-book"></i>
+                Note
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links">
+                <i class="icon icon-lg icon-unlink"></i>
+                Links
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+            <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <span id="jinrishici-sentence">正在加载今日诗词....</span>
+        <div class="flex-col header-title ellipsis">Python + Wxpy  搭建简单微信机器人</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <div class="container fade-scale">
+        <h1 class="title">Python + Wxpy  搭建简单微信机器人</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-21T03:46:00.000Z" itemprop="datePublished" class="page-time">
+  2018-12-21
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#喜欢的可以加微信【wex-5201314】验证信息【py】拉你进群体验"><span class="post-toc-number">1.</span> <span class="post-toc-text">喜欢的可以加微信【wex_5201314】验证信息【py】拉你进群体验</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#或者关注公众号-【故事胶片】-发送-【wxpy】获取源码"><span class="post-toc-number">2.</span> <span class="post-toc-text">或者关注公众号 【故事胶片】 发送 【wxpy】获取源码</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Python-Wxpy-搭建简单微信机器人" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python + Wxpy  搭建简单微信机器人</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-12-21 11:46:00" datetime="2018-12-21T03:46:00.000Z" itemprop="datePublished">2018-12-21</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content clearfix" id="post-content" itemprop="postContent">
+            <p>因为之前想过 如果每天早上微信能够发送天气预报给我，给我老婆多好，然后就动手看网上的教程做了一个可以定时发送天气预报的程序，</p>
+<p>最近又想到折腾，做了一个更加详细的版本。但是需要主动操作</p>
+<p>具体操作看图。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1251988-2e5c2e5ae92517d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4bf724fa5a27670491cee4fd3b7977c.png" title>
+                </div>
+                <div class="image-caption" style="display:none;">4bf724fa5a27670491cee4fd3b7977c.png</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1251988-43c40a9d917f2470.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="d3d3306aa96844c06a4dd991a398e2b.png" title>
+                </div>
+                <div class="image-caption" style="display:none;">d3d3306aa96844c06a4dd991a398e2b.png</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1251988-8b886cd670a2c895.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="b0d0d26535ef1647a74fb0ec5853b5b.png" title>
+                </div>
+                <div class="image-caption" style="display:none;">b0d0d26535ef1647a74fb0ec5853b5b.png</div>
+            </figure></p>
+<p>部分代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf8</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> requests <span class="keyword">import</span> exceptions</span><br><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> urlencode</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Timer</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> wxpy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span>  schedule</span><br><span class="line"><span class="keyword">import</span>  time</span><br><span class="line"><span class="keyword">import</span> http</span><br><span class="line"><span class="keyword">import</span>  json </span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">bot = Bot(cache_path=<span class="keyword">True</span>,console_qr = <span class="number">1</span>)</span><br><span class="line">myself = bot.self</span><br><span class="line">bot.enable_puid(<span class="string">'wxpy_puid.pkl'</span>)</span><br><span class="line">tuling = Tuling(api_key=<span class="string">'换成自己的图片key'</span>)</span><br><span class="line">group = bot.groups().search(<span class="string">u'Test'</span>)</span><br><span class="line">shgroup = bot.groups().search(<span class="string">'伐木累🌱'</span>)</span><br><span class="line">friends = bot.friends().search(<span class="string">u'Lie'</span>)</span><br><span class="line">msgText = <span class="string">"Helo!  回复'功能'获取对应功能\n1.天气（例：苏州天气）\n2.今日nba（注：今日所有比赛结果）\n3.今日黄历\n4.每日一句\n5.开启机器人（关闭机器人）\n6.今日古诗词\n7.每日阅读\n8.历史上的今天\n9.nba排名(注：当日东西部排名)\n10.新闻\n          1.头条新闻\n          2.社会新闻\n          3.娱乐新闻\n          4.体育新闻\n11.星座运势（例如：天秤座）"</span>  <span class="comment">#任意回复获取的菜单</span></span><br><span class="line">newText = <span class="string">"你可以这样回复： \n1.头条新闻\n2.社会新闻\n3.娱乐新闻\n4.体育新闻"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_now_weather</span><span class="params">(city)</span>:</span></span><br><span class="line">    header = &#123;</span><br><span class="line">        <span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'</span>,</span><br><span class="line">        <span class="string">'Accept-Encoding'</span>: <span class="string">'gzip, deflate'</span>,</span><br><span class="line">        <span class="string">'Accept-Language'</span>: <span class="string">'zh-CN,zh;q=0.8'</span>,</span><br><span class="line">        <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>,</span><br><span class="line">        <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.235'</span></span><br><span class="line">    &#125;</span><br><span class="line">    url = <span class="string">'https://free-api.heweather.com/s6/weather/now?location='</span>+city+<span class="string">'&amp;key=换成自己的聚合数据key'</span></span><br><span class="line">    PMurl = <span class="string">'https://free-api.heweather.com/s6/air/now?parameters&amp;location='</span>+city+<span class="string">'&amp;key=换成自己的和风key'</span></span><br><span class="line">    <span class="comment"># 设定超时时间，防止被网站认为是爬虫</span></span><br><span class="line">    timeout = random.choice(range(<span class="number">80</span>, <span class="number">180</span>))</span><br><span class="line">    rep = requests.get(url, headers=header, timeout=timeout)</span><br><span class="line">    pm = requests.get(PMurl, headers=header, timeout=timeout)</span><br><span class="line">    result = <span class="string">''</span></span><br><span class="line">    temp = rep.json()</span><br><span class="line">    temp = temp[<span class="string">'HeWeather6'</span>][<span class="number">0</span>]</span><br><span class="line">    update = temp[<span class="string">'update'</span>]</span><br><span class="line">    now = temp[<span class="string">'now'</span>]</span><br><span class="line">    nowTime = datetime.datetime.now().strftime(<span class="string">'%Y-%m-%d %H:%M:%S'</span>)</span><br><span class="line">    pm = pm.json()</span><br><span class="line">    pm = pm[<span class="string">'HeWeather6'</span>][<span class="number">0</span>]</span><br><span class="line">    print(now)</span><br><span class="line">    airnow = pm[<span class="string">'air_now_city'</span>]</span><br><span class="line">    result = city +  <span class="string">'实时天气预报-'</span> + <span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'更新时间：'</span>+ update[<span class="string">'loc'</span>] + <span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'          当前天气：'</span>+ now[<span class="string">'cond_txt'</span>] + <span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'          当前温度：'</span>+ now[<span class="string">'tmp'</span>] + <span class="string">'°C'</span> + <span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'          体感温度：'</span>+ now[<span class="string">'fl'</span>] + <span class="string">'°C'</span> + <span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'          风向：'</span>+ now[<span class="string">'wind_dir'</span>] + <span class="string">' '</span> + now[<span class="string">'wind_sc'</span>] + <span class="string">'级 '</span>+ now[<span class="string">'wind_spd'</span>] + <span class="string">'公里/小时'</span>+ <span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'          相对湿度：'</span>+ now[<span class="string">'hum'</span>] + <span class="string">'%'</span> + <span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'          降水量：'</span>+ now[<span class="string">'pcpn'</span>] + <span class="string">'ml'</span> + <span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'          能见度：'</span>+ now[<span class="string">'vis'</span>] + <span class="string">'公里'</span> + <span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'          云量：'</span>+ now[<span class="string">'cloud'</span>]  + <span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'-----------------------------------'</span> + <span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'当前空气质量：'</span>+<span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'          空气质量指数：'</span>+ airnow[<span class="string">'aqi'</span>]+<span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'          主要污染物：'</span>+ airnow[<span class="string">'main'</span>]+<span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'          空气质量：'</span>+ airnow[<span class="string">'qlty'</span>]+<span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'          二氧化氮指数：'</span>+ airnow[<span class="string">'no2'</span>]+<span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'          二氧化硫指数：'</span>+ airnow[<span class="string">'so2'</span>]+<span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'          一氧化碳指数：'</span>+ airnow[<span class="string">'co'</span>]+<span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'          pm10指数：'</span>+ airnow[<span class="string">'pm10'</span>]+<span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'          pm25指数：'</span>+ airnow[<span class="string">'pm25'</span>]+<span class="string">'\n'</span>\</span><br><span class="line">    + <span class="string">'          臭氧指数：'</span>+ airnow[<span class="string">'o3'</span>]+<span class="string">'\n'</span></span><br><span class="line"></span><br><span class="line">    result =  result + <span class="string">'发送时间：'</span> +  nowTime + <span class="string">'\n'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_news</span><span class="params">(type)</span>:</span></span><br><span class="line">    header = &#123;</span><br><span class="line">        <span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'</span>,</span><br><span class="line">        <span class="string">'Accept-Encoding'</span>: <span class="string">'gzip, deflate'</span>,</span><br><span class="line">        <span class="string">'Accept-Language'</span>: <span class="string">'zh-CN,zh;q=0.8'</span>,</span><br><span class="line">        <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>,</span><br><span class="line">        <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.235'</span></span><br><span class="line">    &#125;</span><br><span class="line">    url = <span class="string">'http://v.juhe.cn/toutiao/index?type='</span>+str(type)+<span class="string">'&amp;key=换成自己的聚合数据key'</span></span><br><span class="line">    timeout = random.choice(range(<span class="number">80</span>, <span class="number">180</span>))</span><br><span class="line">    rep = requests.get(url, headers=header, timeout=timeout)</span><br><span class="line">    data = json.loads(rep.text)</span><br><span class="line">    data = data[<span class="string">'result'</span>]</span><br><span class="line">    data = data[<span class="string">'data'</span>]</span><br><span class="line">    item = []</span><br><span class="line">    obj = &#123;&#125;</span><br><span class="line">    html = <span class="string">'今日'</span>+str(type)+<span class="string">'新闻：'</span>+ <span class="string">'\n'</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">        html = html + <span class="string">'标题：'</span> + i[<span class="string">'title'</span>] + <span class="string">'\n'</span>\</span><br><span class="line">                + <span class="string">'链接：'</span> + i[<span class="string">'url'</span>] + <span class="string">'\n'</span>\</span><br><span class="line">                + <span class="string">'分类：'</span> + i[<span class="string">'category'</span>] + <span class="string">'\n'</span>\</span><br><span class="line">                + <span class="string">'来自：'</span> + i[<span class="string">'author_name'</span>] + <span class="string">'\n'</span>\</span><br><span class="line">                + <span class="string">'时间：'</span> + i[<span class="string">'date'</span>] + <span class="string">'\n'</span>\</span><br><span class="line">                + <span class="string">'-----------------------------------------------'</span> + <span class="string">'\n'</span> +<span class="string">'\n'</span> \</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> html</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_star</span><span class="params">(name)</span>:</span></span><br><span class="line">    header = &#123;</span><br><span class="line">        <span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'</span>,</span><br><span class="line">        <span class="string">'Accept-Encoding'</span>: <span class="string">'gzip, deflate'</span>,</span><br><span class="line">        <span class="string">'Accept-Language'</span>: <span class="string">'zh-CN,zh;q=0.8'</span>,</span><br><span class="line">        <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>,</span><br><span class="line">        <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.235'</span></span><br><span class="line">    &#125;</span><br><span class="line">    url = <span class="string">'http://web.juhe.cn:8080/constellation/getAll?consName='</span>+str(name)+<span class="string">'&amp;type=today&amp;key=换成自己的聚合数据key'</span></span><br><span class="line">    timeout = random.choice(range(<span class="number">80</span>, <span class="number">180</span>))</span><br><span class="line">    rep = requests.get(url, headers=header, timeout=timeout)</span><br><span class="line">    data = json.loads(rep.text)</span><br><span class="line">    starhtml = <span class="string">'今日'</span>+str(name)+<span class="string">'运势：'</span>+ <span class="string">'\n'</span>\</span><br><span class="line">        + <span class="string">'          综合指数：'</span> + data[<span class="string">'all'</span>] + <span class="string">'\n'</span>\</span><br><span class="line">        + <span class="string">'          幸运色：'</span> + data[<span class="string">'color'</span>] + <span class="string">'\n'</span>\</span><br><span class="line">        + <span class="string">'          健康指数：'</span> + data[<span class="string">'health'</span>] + <span class="string">'\n'</span>\</span><br><span class="line">        + <span class="string">'          爱情指数：'</span> + data[<span class="string">'love'</span>] + <span class="string">'\n'</span>\</span><br><span class="line">        + <span class="string">'          财运指数：'</span> + data[<span class="string">'money'</span>] + <span class="string">'\n'</span>\</span><br><span class="line">        + <span class="string">'          速配星座：'</span> + data[<span class="string">'QFriend'</span>] + <span class="string">'\n'</span>\</span><br><span class="line">        + <span class="string">'          工作指数：'</span> + data[<span class="string">'work'</span>] + <span class="string">'\n'</span>\</span><br><span class="line">        + <span class="string">'          今日概述：'</span> + data[<span class="string">'summary'</span>] + <span class="string">'\n'</span>\</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> starhtml</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_nba</span><span class="params">()</span>:</span></span><br><span class="line">    resp = urlopen(<span class="string">'https://m.hupu.com/nba/game'</span>)</span><br><span class="line">    soup = BeautifulSoup(resp,<span class="string">'html.parser'</span>)</span><br><span class="line">    tagToday = soup.find(<span class="string">'section'</span>,class_=<span class="string">"match-today"</span>)</span><br><span class="line">    nbaHtml = <span class="string">'今日NBA比赛结果：'</span> + <span class="string">'\n'</span> + <span class="string">'\n'</span></span><br><span class="line">    <span class="keyword">for</span> tag <span class="keyword">in</span> tagToday.find_all(<span class="string">'a'</span>, class_=<span class="string">'match-wrap'</span>): </span><br><span class="line">        nbaHtml = nbaHtml + tag.find(<span class="string">'div'</span>, class_=<span class="string">'away-team'</span>).span.get_text() + <span class="string">'    '</span> + tag.find(<span class="string">'strong'</span>, class_=<span class="string">''</span>).span.get_text() + <span class="string">'    '</span> + tag.find(<span class="string">'div'</span>, class_=<span class="string">'home-team'</span>).span.get_text() + <span class="string">'  ('</span> + tag.find(<span class="string">'div'</span>, class_=<span class="string">'match-status-txt'</span>).get_text() +<span class="string">')'</span> + <span class="string">'\n'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> nbaHtml  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_rank</span><span class="params">()</span>:</span></span><br><span class="line">    resp = urlopen(<span class="string">'https://m.hupu.com/nba/stats'</span>)</span><br><span class="line">    soup = BeautifulSoup(resp,<span class="string">'html.parser'</span>)</span><br><span class="line">    east = soup.find_all(<span class="string">'li'</span>,class_= <span class="string">"weast"</span>)[<span class="number">0</span>]</span><br><span class="line">    west = soup.find_all(<span class="string">'li'</span>,class_= <span class="string">"weast"</span>)[<span class="number">1</span>]</span><br><span class="line">    rankHtml = <span class="string">'今日NBA东部排名：（1.排名  2.球队  3.胜负  4.胜负差  5.最近情况）'</span> + <span class="string">'\n'</span> + <span class="string">'\n'</span></span><br><span class="line">    <span class="keyword">for</span> tag <span class="keyword">in</span> east.find_all(<span class="string">'li'</span>, class_=<span class="string">''</span>): </span><br><span class="line">        list = tag.find(<span class="string">'p'</span>, class_=<span class="string">'right-data'</span>)</span><br><span class="line">        rankHtml = rankHtml + tag.find(<span class="string">'span'</span>, class_=<span class="string">'rank'</span>).get_text() + <span class="string">'. '</span> + tag.find(<span class="string">'div'</span>, class_=<span class="string">''</span>).h1.get_text() + <span class="string">'    '</span> + list.find_all(<span class="string">'span'</span>)[<span class="number">0</span>].get_text() + <span class="string">'    '</span> + list.find_all(<span class="string">'span'</span>)[<span class="number">1</span>].get_text() +<span class="string">'    '</span>+ list.find_all(<span class="string">'span'</span>)[<span class="number">2</span>].get_text() +<span class="string">'\n'</span></span><br><span class="line"></span><br><span class="line">    rankHtml = rankHtml + <span class="string">'\n'</span> + <span class="string">'\n'</span> + <span class="string">'---------------------------------------------'</span> + <span class="string">'\n'</span> + <span class="string">'\n'</span></span><br><span class="line">    rankHtml = rankHtml + <span class="string">'今日NBA西部排名：（1.排名  2.球队  3.胜负  4.胜负差  5.最近情况）'</span> + <span class="string">'\n'</span> + <span class="string">'\n'</span>        </span><br><span class="line">    <span class="keyword">for</span> tag <span class="keyword">in</span> west.find_all(<span class="string">'li'</span>, class_=<span class="string">''</span>): </span><br><span class="line">        list = tag.find(<span class="string">'p'</span>, class_=<span class="string">'right-data'</span>)</span><br><span class="line">        rankHtml = rankHtml + tag.find(<span class="string">'span'</span>, class_=<span class="string">'rank'</span>).get_text() + <span class="string">'. '</span> + tag.find(<span class="string">'div'</span>, class_=<span class="string">''</span>).h1.get_text() + <span class="string">'    '</span> + list.find_all(<span class="string">'span'</span>)[<span class="number">0</span>].get_text() + <span class="string">'    '</span> + list.find_all(<span class="string">'span'</span>)[<span class="number">1</span>].get_text() +<span class="string">'    '</span>+ list.find_all(<span class="string">'span'</span>)[<span class="number">2</span>].get_text() +<span class="string">'\n'</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> rankHtml   </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">invite</span><span class="params">(user)</span>:</span></span><br><span class="line">    print(<span class="string">'4'</span>)</span><br><span class="line">    group =  bot.groups().search(<span class="string">'cc'</span>)</span><br><span class="line">    group[<span class="number">0</span>].add_members(user, use_invitation=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@bot.register(msg_types=FRIENDS)</span></span><br><span class="line"><span class="meta">@bot.register(group)</span></span><br><span class="line"><span class="meta">@bot.register(shgroup,TEXT)</span></span><br><span class="line"><span class="meta">@bot.register(friends)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">auto_reply_all</span><span class="params">(msg)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">'苏州天气'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        nowWeather = get_now_weather(<span class="string">'苏州'</span>)</span><br><span class="line">        msg.sender.send(nowWeather)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'py'</span> <span class="keyword">in</span> msg.text.lower():</span><br><span class="line">        <span class="comment"># 接受好友 (msg.card 为该请求的用户对象)</span></span><br><span class="line">        new_friend = bot.accept_friend(msg.card)</span><br><span class="line">        <span class="comment"># 或 new_friend = msg.card.accept()</span></span><br><span class="line">        <span class="comment"># 向新的好友发送消息</span></span><br><span class="line">        new_friend.send(<span class="string">'哈哈，我自动接受了你的好友请求，发送【帮助】获取帮助！！'</span>)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'上海天气'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        nowWeather = get_now_weather(<span class="string">'上海'</span>)</span><br><span class="line">        msg.sender.send(nowWeather)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'帮助'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        msg.sender.send(msgText)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'每日一句'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        url = <span class="string">'http://open.iciba.com/dsapi/'</span></span><br><span class="line">        r = requests.get(url)</span><br><span class="line">        content = json.loads(r.text)</span><br><span class="line">        msg.sender.send(<span class="string">'每日一句：\n'</span>+content[<span class="string">'content'</span>] +<span class="string">'\n'</span>+content[<span class="string">'note'</span>]+<span class="string">"\n"</span>)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'今日黄历'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        header = &#123;</span><br><span class="line">            <span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'</span>,</span><br><span class="line">            <span class="string">'Accept-Encoding'</span>: <span class="string">'gzip, deflate'</span>,</span><br><span class="line">            <span class="string">'Accept-Language'</span>: <span class="string">'zh-CN,zh;q=0.8'</span>,</span><br><span class="line">            <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>,</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.235'</span></span><br><span class="line">        &#125;</span><br><span class="line">        timeout = random.choice(range(<span class="number">80</span>, <span class="number">180</span>))</span><br><span class="line">        wk = &#123;<span class="string">"Sunday"</span>:<span class="string">"星期日"</span>,<span class="string">"Monday"</span>:<span class="string">"星期一"</span>,<span class="string">"Tuesday"</span>:<span class="string">"星期二"</span>,<span class="string">"Wednesday"</span>:<span class="string">"星期三"</span>,<span class="string">"Thursday"</span>:<span class="string">"星期四"</span>,<span class="string">"Friday"</span>:<span class="string">"星期五"</span>,<span class="string">"Saturday"</span>:<span class="string">"星期六"</span>&#125;</span><br><span class="line">        yy = &#123;<span class="string">"False"</span>:<span class="string">"不是"</span>,<span class="string">"True"</span>:<span class="string">"是"</span>&#125;</span><br><span class="line">        url = <span class="string">"https://www.sojson.com/open/api/lunar/json.shtml"</span></span><br><span class="line">        r = requests.get(url, headers= header, timeout=timeout)</span><br><span class="line">        jsonarr = json.loads(r.text)</span><br><span class="line">        result = jsonarr[<span class="string">"data"</span>]</span><br><span class="line">        xingqi = str(wk[result[<span class="string">'week'</span>]])</span><br><span class="line">        yangli = <span class="string">'阳历日期：'</span> + str(result[<span class="string">'year'</span>]) +<span class="string">'-'</span>+ str(result[<span class="string">'month'</span>])  +<span class="string">'-'</span>+  str(result[<span class="string">'day'</span>])</span><br><span class="line">        nongli = <span class="string">'农历日期：'</span> + str(result[<span class="string">'cnyear'</span>]) + <span class="string">'-'</span> + str(result[<span class="string">'cnmonth'</span>]) + <span class="string">'月-'</span> + str(result[<span class="string">'cnday'</span>]) +<span class="string">'日'</span></span><br><span class="line">        jieqibody = result[<span class="string">"jieqi"</span>]</span><br><span class="line">        jieqi =<span class="string">'本月节气:'</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> jieqibody:</span><br><span class="line">            jieqi += i + <span class="string">'日'</span> + jieqibody[i] + <span class="string">'，'</span></span><br><span class="line">        leap = <span class="string">'是否是闰月：'</span> + str(result[<span class="string">'leap'</span>])</span><br><span class="line">        maxDayInMonth = <span class="string">'农历当月天数：'</span> + str(result[<span class="string">'maxDayInMonth'</span>])</span><br><span class="line">        festivalList = <span class="string">'当天节日：'</span> + str(result[<span class="string">'festivalList'</span>])</span><br><span class="line">        jiazi = <span class="string">'甲子:'</span> + str(result[<span class="string">'cyclicalYear'</span>]) + <span class="string">'-'</span> + str(result[<span class="string">'cyclicalMonth'</span>]) + <span class="string">'-'</span> + str(result[<span class="string">'cyclicalDay'</span>])</span><br><span class="line">        shengxiao = <span class="string">'今年生肖：'</span> + str(result[<span class="string">'animal'</span>])</span><br><span class="line">        yi = <span class="string">'宜：'</span> + str(result[<span class="string">'suit'</span>])</span><br><span class="line">        ji = <span class="string">'忌：'</span> + str(result[<span class="string">'taboo'</span>])</span><br><span class="line">        msg.sender.send(<span class="string">'今天是:'</span>+ xingqi + <span class="string">'\n'</span>  + <span class="string">'本日黄历：'</span> + <span class="string">'\n'</span>  + yangli + <span class="string">'\n'</span> + nongli + <span class="string">"\n"</span> + jiazi + <span class="string">"\n"</span> + shengxiao + <span class="string">"\n"</span> + yi + <span class="string">"\n"</span> + ji + <span class="string">"\n"</span> + leap + <span class="string">"\n"</span> + maxDayInMonth + <span class="string">"\n"</span> + festivalList + <span class="string">"\n"</span> + jieqi + <span class="string">"\n"</span>)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'今日古诗词'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        header = &#123;</span><br><span class="line">            <span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'</span>,</span><br><span class="line">            <span class="string">'Accept-Encoding'</span>: <span class="string">'gzip, deflate'</span>,</span><br><span class="line">            <span class="string">'Accept-Language'</span>: <span class="string">'zh-CN,zh;q=0.8'</span>,</span><br><span class="line">            <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>,</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.235'</span></span><br><span class="line">        &#125;</span><br><span class="line">        timeout = random.choice(range(<span class="number">80</span>, <span class="number">180</span>))</span><br><span class="line">        url = <span class="string">"https://v2.jinrishici.com/info"</span></span><br><span class="line">        urlA = <span class="string">"https://v2.jinrishici.com/one.json"</span></span><br><span class="line">        r = requests.get(url, headers= header, timeout=timeout)</span><br><span class="line">        rA = requests.get(urlA, headers= header, timeout=timeout)</span><br><span class="line">        jsonarr = json.loads(r.text)</span><br><span class="line">        jsonA = json.loads(rA.text)</span><br><span class="line">        result = jsonarr[<span class="string">"data"</span>]</span><br><span class="line">        resultA = jsonA[<span class="string">"data"</span>]</span><br><span class="line">        content = str(resultA[<span class="string">'content'</span>])</span><br><span class="line">        origin = resultA[<span class="string">'origin'</span>]</span><br><span class="line">        title = str(origin[<span class="string">'title'</span>])</span><br><span class="line">        dynasty = str(origin[<span class="string">'dynasty'</span>])</span><br><span class="line">        author = str(origin[<span class="string">'author'</span>])</span><br><span class="line">        detail = <span class="string">'《'</span> + <span class="string">',\n'</span>.join(origin[<span class="string">'content'</span>]) + <span class="string">'》'</span></span><br><span class="line">        matchTags = <span class="string">'推荐关键词：'</span> + <span class="string">','</span>.join(resultA[<span class="string">'matchTags'</span>])</span><br><span class="line">        sendTime = <span class="string">'发送时间：'</span> + str(resultA[<span class="string">'cacheAt'</span>])</span><br><span class="line">        ipAddress = <span class="string">'查询人IP：'</span> + str(result[<span class="string">'ip'</span>])</span><br><span class="line">        address = <span class="string">'查询人地址：'</span> + str(result[<span class="string">'region'</span>])</span><br><span class="line">        weatherData = result[<span class="string">'weatherData'</span>]</span><br><span class="line">        wd = <span class="string">'          实时温度：'</span> + str(weatherData[<span class="string">'temperature'</span>]) + <span class="string">'°C'</span></span><br><span class="line">        fx = str(weatherData[<span class="string">'windDirection'</span>])</span><br><span class="line">        fl =  str(weatherData[<span class="string">'windPower'</span>])</span><br><span class="line">        sd = <span class="string">'          湿度：'</span> + str(weatherData[<span class="string">'humidity'</span>])</span><br><span class="line">        uptime = <span class="string">'          更新时间：'</span> + str(weatherData[<span class="string">'updateTime'</span>])</span><br><span class="line">        we = <span class="string">'          天气：'</span> + str(weatherData[<span class="string">'weather'</span>])</span><br><span class="line">        njd = <span class="string">'          能见度：'</span> + str(weatherData[<span class="string">'visibility'</span>])</span><br><span class="line">        yu = <span class="string">'          雨量：'</span> + str(weatherData[<span class="string">'rainfall'</span>])</span><br><span class="line">        pm25 = <span class="string">'          pm2.5：'</span> + str(weatherData[<span class="string">'pm25'</span>])</span><br><span class="line">        tags = <span class="string">'          '</span> + <span class="string">','</span>.join(result[<span class="string">'tags'</span>])</span><br><span class="line">        scMsg = content + <span class="string">'\n'</span> + <span class="string">'          ---- 这是来自'</span> + dynasty + <span class="string">'诗人'</span> + author + <span class="string">'的'</span> + <span class="string">'《'</span>+ title +<span class="string">'》'</span> + <span class="string">'\n'</span> + matchTags + <span class="string">'\n'</span> +<span class="string">'诗句详情：'</span> + <span class="string">'\n'</span> + detail + <span class="string">'\n'</span> + <span class="string">'\n'</span> + sendTime + <span class="string">'\n'</span>  + ipAddress + <span class="string">'\n'</span> + address + <span class="string">'\n'</span> + <span class="string">'天气（实时）：'</span> + <span class="string">'\n'</span> + we + <span class="string">'\n'</span> + wd + <span class="string">'\n'</span> + <span class="string">'          风向：'</span> + fx + fl + <span class="string">'\n'</span> + sd +<span class="string">'\n'</span> + njd + <span class="string">'\n'</span> + yu + <span class="string">'\n'</span> + pm25 + <span class="string">'\n'</span> + <span class="string">'标签：'</span> + <span class="string">'\n'</span> + tags  </span><br><span class="line">        msg.sender.send(scMsg)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'帮助'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        msg.sender.send(msgText)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'今日nba'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        nba = get_nba()</span><br><span class="line">        msg.sender.send(nba)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'nba排名'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        nbarank = get_rank()</span><br><span class="line">        msg.sender.send(nbarank)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'头条新闻'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        nlist = get_news(<span class="string">'头条'</span>)</span><br><span class="line">        msg.sender.send(nlist)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'娱乐新闻'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        nlist = get_news(<span class="string">'娱乐'</span>)</span><br><span class="line">        msg.sender.send(nlist)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'体育新闻'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        nlist = get_news(<span class="string">'体育'</span>)</span><br><span class="line">        msg.sender.send(nlist)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'社会新闻'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        nlist = get_news(<span class="string">'社会'</span>)</span><br><span class="line">        msg.sender.send(nlist)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'每日阅读'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        header = &#123;</span><br><span class="line">            <span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'</span>,</span><br><span class="line">            <span class="string">'Accept-Encoding'</span>: <span class="string">'gzip, deflate'</span>,</span><br><span class="line">            <span class="string">'Accept-Language'</span>: <span class="string">'zh-CN,zh;q=0.8'</span>,</span><br><span class="line">            <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>,</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.3; WOW64) A&lt;Appl&gt;&lt;/Appl&gt;WebKit/537.36 (KHTML, like Gecko) Chrome/43.0.235'</span></span><br><span class="line">        &#125;</span><br><span class="line">        timeout = random.choice(range(<span class="number">80</span>, <span class="number">180</span>))</span><br><span class="line">        url = <span class="string">"https://interface.meiriyiwen.com/article/random?dev=1"</span></span><br><span class="line">        r = requests.get(url, headers= header, timeout=timeout)</span><br><span class="line">        jsonarr = json.loads(r.text)</span><br><span class="line">        result = jsonarr[<span class="string">"data"</span>]</span><br><span class="line">        form = <span class="string">'来自：'</span> + str(result[<span class="string">'author'</span>]) + <span class="string">'的《'</span> + str(result[<span class="string">'title'</span>]) + <span class="string">'》\n'</span></span><br><span class="line">        content = str(result[<span class="string">'content'</span>])</span><br><span class="line">        msg.sender.send(form + content)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'历史上的今天'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        header = &#123;</span><br><span class="line">            <span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'</span>,</span><br><span class="line">            <span class="string">'Accept-Encoding'</span>: <span class="string">'gzip, deflate'</span>,</span><br><span class="line">            <span class="string">'Accept-Language'</span>: <span class="string">'zh-CN,zh;q=0.8'</span>,</span><br><span class="line">            <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>,</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.235'</span></span><br><span class="line">        &#125;</span><br><span class="line">        timeout = random.choice(range(<span class="number">80</span>, <span class="number">180</span>))</span><br><span class="line">        m = datetime.datetime.now().month</span><br><span class="line">        d = datetime.datetime.now().day</span><br><span class="line">        url = <span class="string">"http://api.juheapi.com/japi/toh?v=1.0&amp;month="</span>+str(m)+<span class="string">"&amp;day="</span>+str(d)+<span class="string">"&amp;key=换成自己的key"</span></span><br><span class="line">        r = requests.get(url, headers= header, timeout=timeout)</span><br><span class="line">        jsonarr = json.loads(r.text)</span><br><span class="line">        result = jsonarr[<span class="string">"result"</span>]</span><br><span class="line">        form = <span class="string">'历史上的【'</span> + str(m) +<span class="string">'-'</span>+ str(d)+ <span class="string">'】发生了以下事件：'</span> + <span class="string">'\n'</span> + <span class="string">'\n'</span></span><br><span class="line">        item = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> result:</span><br><span class="line">            item.append(i[<span class="string">'des'</span>])</span><br><span class="line">        item = <span class="string">'\n'</span>+ <span class="string">'\n'</span>.join(item)</span><br><span class="line"></span><br><span class="line">        msg.sender.send(form + item)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'白羊座'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        star = get_star(<span class="string">'白羊座'</span>)</span><br><span class="line">        msg.sender.send(star)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'金牛座'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        star = get_star(<span class="string">'金牛座'</span>)</span><br><span class="line">        msg.sender.send(star)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'双子座'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        star = get_star(<span class="string">'双子座'</span>)</span><br><span class="line">        msg.sender.send(star)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'巨蟹座'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        star = get_star(<span class="string">'巨蟹座'</span>)</span><br><span class="line">        msg.sender.send(star)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'狮子座'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        star = get_star(<span class="string">'狮子座'</span>)</span><br><span class="line">        msg.sender.send(star)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'处女座'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        star = get_star(<span class="string">'处女座'</span>)</span><br><span class="line">        msg.sender.send(star)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'天秤座'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        star = get_star(<span class="string">'天秤座'</span>)</span><br><span class="line">        msg.sender.send(star)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'天蝎座'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        star = get_star(<span class="string">'天蝎座'</span>)</span><br><span class="line">        msg.sender.send(star)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'射手座'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        star = get_star(<span class="string">'射手座'</span>)</span><br><span class="line">        msg.sender.send(star)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'摩羯座'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        star = get_star(<span class="string">'摩羯座'</span>)</span><br><span class="line">        msg.sender.send(star)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'水瓶座'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        star = get_star(<span class="string">'水瓶座'</span>)</span><br><span class="line">        msg.sender.send(star)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'双鱼座'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        star = get_star(<span class="string">'双鱼座'</span>)</span><br><span class="line">        msg.sender.send(star)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'开启机器人'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        msg.sender.send(<span class="string">'哎呀，人家还不能这样呢'</span>)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'关闭机器人'</span> <span class="keyword">in</span> msg.text:</span><br><span class="line">        msg.sender.send(<span class="string">'哎呀，人家还不能这样呢'</span>)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">'加群'</span> <span class="keyword">in</span> msg.text.lower():</span><br><span class="line">        print(<span class="string">'1'</span>)</span><br><span class="line">        group =  bot.groups().search(<span class="string">'cc'</span>)</span><br><span class="line">        group[<span class="number">0</span>].add_members(msg.sender, use_invitation=<span class="keyword">True</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        tuling.do_reply(msg)  </span><br><span class="line">        msg.sender.send(msg.location)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    schedule.run_pending()</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure></p>
+<h4 id="喜欢的可以加微信【wex-5201314】验证信息【py】拉你进群体验"><a href="#喜欢的可以加微信【wex-5201314】验证信息【py】拉你进群体验" class="headerlink" title="喜欢的可以加微信【wex_5201314】验证信息【py】拉你进群体验"></a>喜欢的可以加微信【wex_5201314】验证信息【py】拉你进群体验</h4><h4 id="或者关注公众号-【故事胶片】-发送-【wxpy】获取源码"><a href="#或者关注公众号-【故事胶片】-发送-【wxpy】获取源码" class="headerlink" title="或者关注公众号 【故事胶片】 发送 【wxpy】获取源码"></a>或者关注公众号 【故事胶片】 发送 【wxpy】获取源码</h4><p>或者直接扫描二维码</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/1251988-3b1091ff1520191b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="WeChat Image_20181221112044.jpg" title>
+                </div>
+                <div class="image-caption" style="display:none;">WeChat Image_20181221112044.jpg</div>
+            </figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2019-03-06T07:26:04.540Z" itemprop="dateUpdated">2019-03-06 15:26:04</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://jiaopianjun.cc">
+            <img src="/img/avatar.gif" alt="Lieme">
+            Lieme
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信机器人/">微信机器人</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiaopianjun.cc/2018/12/21/Python-Wxpy-搭建简单微信机器人.html&title=《Python + Wxpy  搭建简单微信机器人》 — 故事胶片&pic=https://jiaopianjun.cc/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2018/12/21/Python-Wxpy-搭建简单微信机器人.html&title=《Python + Wxpy  搭建简单微信机器人》 — 故事胶片&source=用心记录美好的瞬间" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiaopianjun.cc/2018/12/21/Python-Wxpy-搭建简单微信机器人.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python + Wxpy  搭建简单微信机器人》 — 故事胶片&url=https://jiaopianjun.cc/2018/12/21/Python-Wxpy-搭建简单微信机器人.html&via=https://jiaopianjun.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiaopianjun.cc/2018/12/21/Python-Wxpy-搭建简单微信机器人.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/12/24/JS快速排序记录.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">JS快速排序记录</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/12/12/页面得重绘与回流.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">页面的重绘（repaint）与回流（reflow）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'pianjiao@gmail.com' == 'true',
+            verify: 'true' == 'true',
+            appId: "TWn7ScRql8E7o3XSclzuzqHv-gzGzoHsz",
+            appKey: "YwgPLTEdtePf3yTQx4iXewoF",
+            avatar: "mm/identicon/monsterid/wavatar/retro/robohash",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="http://upload-images.jianshu.io/upload_images/1251988-b06de6cce1ee9b14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="http://upload-images.jianshu.io/upload_images/1251988-b06de6cce1ee9b14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720" data-alipay="http://upload-images.jianshu.io/upload_images/1251988-926d37b96c5affe0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/720">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+            <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        
+            <p>
+
+                
+            </p>
+        
+    </div>
+    <div class="bottom">
+        <p><span>Lieme &copy; 2018 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18048410号-1</a><br>
+                
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiaopianjun.cc/2018/12/21/Python-Wxpy-搭建简单微信机器人.html&title=《Python + Wxpy  搭建简单微信机器人》 — 故事胶片&pic=https://jiaopianjun.cc/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2018/12/21/Python-Wxpy-搭建简单微信机器人.html&title=《Python + Wxpy  搭建简单微信机器人》 — 故事胶片&source=用心记录美好的瞬间" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiaopianjun.cc/2018/12/21/Python-Wxpy-搭建简单微信机器人.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python + Wxpy  搭建简单微信机器人》 — 故事胶片&url=https://jiaopianjun.cc/2018/12/21/Python-Wxpy-搭建简单微信机器人.html&via=https://jiaopianjun.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiaopianjun.cc/2018/12/21/Python-Wxpy-搭建简单微信机器人.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsElEQVR42u3aQa4iMQwFQO5/aeYAI+A9O0F8qXqFgAZXFonb9uMRX8/4+v+u5JdfvX716eELDw8P72jo7//sPSz5/vugE/z7SPDw8PDu8TZb9ubvk6V5H88HCx4eHt4P8Nrg8kT8/b/g4eHh/V1efiS0i5Un33h4eHi/wMu37P3394fQlVoLHh4eXszLu0i/8/pKfw8PDw/v6EDApmW138SfowsPDw/vBq8djUoGC/JhgnakoI0TDw8P7wZvUwLIQ9xn+u1v4uHh4d3jtVvwqdbXZlwgP3Lw8PDwbvDyUGbjULMQ2+OneFbAw8PDW/M2iW9bkE0CaksYdaB4eHh4R3nJoED+C/uCQnvMvIwZDw8P7ygvvyEv17bpcn7A5AOvj3Y98PDw8EreLJ1tw2oT5f2i4+Hh4d3gbZLmnJ2PZ9VPA8kDAB4eHt5R3nCrLQcO2kLwZlE+FCPw8PDwDvHaR/124KAdupoNIkTFCDw8PLw1L4fNRqBmC5cfMMli4eHh4d3jzQq7w2mFUesrSd+LWjUeHh7eiDdr1ed3zRpa+5IEHh4e3jd57bjAppSwKRnXQ1d4eHh4h3ibLbgtXszqq22iH9Va8PDw8A7xhpWMch8uyq/BsRQdP3h4eHgXeJtA9+/PBgVyPB4eHt4NXt6yOpXy5gXi9vvDujIeHh7egjc7GNohqnZIazOGhYeHh/dN3myYIH99YNNPlgMPDw/vKO9ZXnmRN0myZ+XaYonx8PDwLvDyq02mZ0l2Utg9gMHDw8Nb89rDoG1BtVv87K7oiQEPDw/vKC9vcSVHRTscsC9GPPbnFR4eHt5XeHmCu2loJe+/XG48PDy8n+TlB0O7NHnb7GU8eHh4eNd4m4JCMaewbqElqTweHh7ebV6b2m6KsG1TLT9sDvT38PDw8D7f9Q9/fV6TBIwGaAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '404 --- (。>︿<)_θ';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</html>

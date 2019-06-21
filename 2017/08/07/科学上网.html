@@ -31,27 +31,30 @@
     
     
     <meta name="keywords" content="技术分享,Hyperapp,科学上网,日常挖坑">
-    <meta name="description" content="这是原作者 @waylybaye 一开始发布在少数派上的文章搬运过来，文章所有权归 原作者 @waylybaye 所有  这篇文章将会介绍如何获取由 Google 提供的一年 $300 美金的试用金，然后使用 HyperApp 搭建一个低延迟超高速的科学上网环境。网络延迟基本在50ms左右，并且可以流畅观看 Youtube 4K 视频。本文不需要读者有较深的技术背景，全部过程都可视化、自动化完">
+    <meta name="description" content="这是原作者 @waylybaye 一开始发布在少数派上的文章搬运过来，文章所有权归 原作者 @waylybaye 所有  这篇文章将会介绍如何获取由 Google 提供的一年 $300 美金的试用金，然后使用 HyperApp 搭建一个低延迟超高速的科学上网环境。网络延迟基本在50ms左右，并且可以流畅观看 Youtube 4K 视频。本文不需要读者有较深的技术背景，全部过程都可视化、自动化完成">
 <meta name="keywords" content="技术分享,Hyperapp,科学上网,日常挖坑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 HyperApp，打造一个安全稳定超高速的科学上网环境">
 <meta property="og:url" content="https://jiaopianjun.cc/2017/08/07/科学上网.html">
 <meta property="og:site_name" content="故事胶片">
-<meta property="og:description" content="这是原作者 @waylybaye 一开始发布在少数派上的文章搬运过来，文章所有权归 原作者 @waylybaye 所有  这篇文章将会介绍如何获取由 Google 提供的一年 $300 美金的试用金，然后使用 HyperApp 搭建一个低延迟超高速的科学上网环境。网络延迟基本在50ms左右，并且可以流畅观看 Youtube 4K 视频。本文不需要读者有较深的技术背景，全部过程都可视化、自动化完">
+<meta property="og:description" content="这是原作者 @waylybaye 一开始发布在少数派上的文章搬运过来，文章所有权归 原作者 @waylybaye 所有  这篇文章将会介绍如何获取由 Google 提供的一年 $300 美金的试用金，然后使用 HyperApp 搭建一个低延迟超高速的科学上网环境。网络延迟基本在50ms左右，并且可以流畅观看 Youtube 4K 视频。本文不需要读者有较深的技术背景，全部过程都可视化、自动化完成">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1251988-6cecbbc3cdc36230.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1251988-ff040398fe0df5f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w620">
-<meta property="og:image" content="https://itunes.apple.com/app/apple-store/id1179750280?pt=118260435&ct=gce.s&mt=8">
+<meta property="og:image" content="http://blogimg.lieme.cn/FsjWaQ2cFQwkKuBGDUts0BcjRS_5">
+<meta property="og:image" content="http://blogimg.lieme.cn/FilfC_cvRUxOMRo5ht1e96vZmia2">
+<meta property="og:image" content="http://blogimg.lieme.cn/Fp44m1cSneQOp3NK3R5yTzw0J-fR">
+<meta property="og:image" content="http://blogimg.lieme.cn/FnoXuJiXyuA7DR4rITLUO1fhch_n">
+<meta property="og:image" content="http://blogimg.lieme.cn/FnbBU5Ougp49dYuNnAxXmNkfgQzu">
+<meta property="og:image" content="http://blogimg.lieme.cn/Fj64B0r_gPhpgUA2-6Nzo6t2Saar">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1251988-824178f24d3f8db4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1251988-05732579a262568c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1251988-bf13a5cf7128333b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1251988-9595aaf45f6b9d45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1251988-1f2e128c67b179b6.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2019-03-06T07:26:04.634Z">
+<meta property="og:updated_time" content="2019-06-21T09:50:18.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 HyperApp，打造一个安全稳定超高速的科学上网环境">
-<meta name="twitter:description" content="这是原作者 @waylybaye 一开始发布在少数派上的文章搬运过来，文章所有权归 原作者 @waylybaye 所有  这篇文章将会介绍如何获取由 Google 提供的一年 $300 美金的试用金，然后使用 HyperApp 搭建一个低延迟超高速的科学上网环境。网络延迟基本在50ms左右，并且可以流畅观看 Youtube 4K 视频。本文不需要读者有较深的技术背景，全部过程都可视化、自动化完">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1251988-6cecbbc3cdc36230.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+<meta name="twitter:description" content="这是原作者 @waylybaye 一开始发布在少数派上的文章搬运过来，文章所有权归 原作者 @waylybaye 所有  这篇文章将会介绍如何获取由 Google 提供的一年 $300 美金的试用金，然后使用 HyperApp 搭建一个低延迟超高速的科学上网环境。网络延迟基本在50ms左右，并且可以流畅观看 Youtube 4K 视频。本文不需要读者有较深的技术背景，全部过程都可视化、自动化完成">
+<meta name="twitter:image" content="http://blogimg.lieme.cn/FsjWaQ2cFQwkKuBGDUts0BcjRS_5">
     
         <link rel="alternate" type="application/atom+xml" title="故事胶片" href="/atom.xml">
     
@@ -208,7 +211,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#这是原作者-waylybaye-一开始发布在少数派上的文章搬运过来，文章所有权归-原作者-waylybaye-所有"><span class="post-toc-number">1.</span> <span class="post-toc-text">这是原作者 @waylybaye 一开始发布在少数派上的文章搬运过来，文章所有权归 原作者 @waylybaye 所有</span></a></li></ol><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#本文前提条件"><span class="post-toc-number"></span> <span class="post-toc-text">本文前提条件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#GCP-注册以及创建服务器"><span class="post-toc-number"></span> <span class="post-toc-text">GCP 注册以及创建服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HyperApp"><span class="post-toc-number"></span> <span class="post-toc-text">HyperApp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#添加服务器"><span class="post-toc-number">1.</span> <span class="post-toc-text">添加服务器</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#永久添加公钥"><span class="post-toc-number">2.</span> <span class="post-toc-text">永久添加公钥</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#开启-BBR-加速，跑满带宽"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">开启 BBR 加速，跑满带宽</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#部署科学上网应用"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">部署科学上网应用</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#客户端设置"><span class="post-toc-number">3.</span> <span class="post-toc-text">客户端设置</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#iOS"><span class="post-toc-number">4.</span> <span class="post-toc-text">iOS</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Mac-Windows"><span class="post-toc-number">5.</span> <span class="post-toc-text">Mac/Windows</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#其它玩法"><span class="post-toc-number">6.</span> <span class="post-toc-text">其它玩法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HyperApp-支持"><span class="post-toc-number"></span> <span class="post-toc-text">HyperApp 支持</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自建和购买商业服务对比有什么优势？"><span class="post-toc-number"></span> <span class="post-toc-text">自建和购买商业服务对比有什么优势？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#学生优惠计划"><span class="post-toc-number"></span> <span class="post-toc-text">学生优惠计划</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设置-GCE-防火墙"><span class="post-toc-number"></span> <span class="post-toc-text">设置 GCE 防火墙</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#这是原作者-waylybaye-一开始发布在少数派上的文章搬运过来，文章所有权归-原作者-waylybaye-所有"><span class="post-toc-number">1.</span> <span class="post-toc-text">这是原作者 @waylybaye 一开始发布在少数派上的文章搬运过来，文章所有权归 原作者 @waylybaye 所有</span></a></li></ol><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#本文前提条件"><span class="post-toc-number"></span> <span class="post-toc-text">本文前提条件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#GCP-注册以及创建服务器"><span class="post-toc-number"></span> <span class="post-toc-text">GCP 注册以及创建服务器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#新建主机"><span class="post-toc-number">1.</span> <span class="post-toc-text">新建主机</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HyperApp"><span class="post-toc-number"></span> <span class="post-toc-text">HyperApp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#添加服务器"><span class="post-toc-number">1.</span> <span class="post-toc-text">添加服务器</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#永久添加公钥"><span class="post-toc-number">2.</span> <span class="post-toc-text">永久添加公钥</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#开启-BBR-加速，跑满带宽"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">开启 BBR 加速，跑满带宽</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#部署科学上网应用"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">部署科学上网应用</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#客户端设置"><span class="post-toc-number">3.</span> <span class="post-toc-text">客户端设置</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#iOS"><span class="post-toc-number">4.</span> <span class="post-toc-text">iOS</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Mac-Windows"><span class="post-toc-number">5.</span> <span class="post-toc-text">Mac/Windows</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#其它玩法"><span class="post-toc-number">6.</span> <span class="post-toc-text">其它玩法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HyperApp-支持"><span class="post-toc-number"></span> <span class="post-toc-text">HyperApp 支持</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自建和购买商业服务对比有什么优势？"><span class="post-toc-number"></span> <span class="post-toc-text">自建和购买商业服务对比有什么优势？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#学生优惠计划"><span class="post-toc-number"></span> <span class="post-toc-text">学生优惠计划</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设置-GCE-防火墙"><span class="post-toc-number"></span> <span class="post-toc-text">设置 GCE 防火墙</span></a>
         </li></ol></li></nav>
     </aside>
 
@@ -233,7 +236,7 @@
 
         </div>
         <div class="post-content clearfix" id="post-content" itemprop="postContent">
-            <p> <br></p>
+            <p><br></p>
 <h5 id="这是原作者-waylybaye-一开始发布在少数派上的文章搬运过来，文章所有权归-原作者-waylybaye-所有"><a href="#这是原作者-waylybaye-一开始发布在少数派上的文章搬运过来，文章所有权归-原作者-waylybaye-所有" class="headerlink" title="这是原作者 @waylybaye 一开始发布在少数派上的文章搬运过来，文章所有权归 原作者 @waylybaye 所有"></a>这是原作者 <a href="http://weibo.com/waylybaye?profile_ftype=1&amp;is_all=1#_rnd1502088401009" target="_blank" rel="noopener">@waylybaye</a> 一开始发布在<a href="http://sspai.com" target="_blank" rel="noopener">少数派</a>上的文章搬运过来，文章所有权归 原作者 <a href="http://weibo.com/waylybaye?profile_ftype=1&amp;is_all=1#_rnd1502088401009" target="_blank" rel="noopener">@waylybaye</a> 所有</h5><p> <br></p>
 <p>这篇文章将会介绍如何获取由 Google 提供的一年 $300 美金的试用金，然后使用 HyperApp 搭建一个低延迟超高速的科学上网环境。网络延迟基本在50ms左右，并且可以流畅观看 Youtube 4K 视频。本文不需要读者有较深的技术背景，全部过程都可视化、自动化完成。</p>
 <p>下文用 GCP 代表 Google Cloud Platform，指 Google 的整个云平台。GCE 是指 Google Cloud Engine，是 GCP 产品线里的一个主机产品。<br>现状啊 ！！</p>
@@ -245,9 +248,16 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="http://upload-images.jianshu.io/upload_images/1251988-6cecbbc3cdc36230.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="c7e73bf5e3e3d793f68b3453f019e71b.png" title>
+                    <img src="http://blogimg.lieme.cn/FsjWaQ2cFQwkKuBGDUts0BcjRS_5" alt="1freetier.png" title>
                 </div>
-                <div class="image-caption" style="display:none;">c7e73bf5e3e3d793f68b3453f019e71b.png</div>
+                <div class="image-caption" style="display:none;">1freetier.png</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://blogimg.lieme.cn/FilfC_cvRUxOMRo5ht1e96vZmia2" alt="1intro.png" title>
+                </div>
+                <div class="image-caption" style="display:none;">1intro.png</div>
             </figure>
 <p>GCP Free Tier</p>
 <p>3.登录Google账号后使用这个链接来注册 <a href="https://cloud.google.com/free/" target="_blank" rel="noopener">https://cloud.google.com/free/</a> ，在打开的页面中点击<code>Try it Free</code>.</p>
@@ -258,21 +268,32 @@
 <p>8.付款方式：添加一个信用卡。这个信用卡将会用来验证身份，防止GCP被滥用。</p>
 <p>9.点击 开始<code>免费使用</code> 完成注册</p>
 <p>10.在后面的页面中，如果你能看到页面顶部有一个“礼物 🎁 ” 的小图标，说明已经获取了试用金。</p>
-<ul>
-<li>新建主机<figure class="image-bubble">
+<h5 id="新建主机"><a href="#新建主机" class="headerlink" title="新建主机"></a>新建主机</h5><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="http://upload-images.jianshu.io/upload_images/1251988-ff040398fe0df5f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w620" alt="8ef350c70dbe91ba11ca92663191019f.png" title>
+                    <img src="http://blogimg.lieme.cn/Fp44m1cSneQOp3NK3R5yTzw0J-fR" alt="2vmsnav.png" title>
                 </div>
-                <div class="image-caption" style="display:none;">8ef350c70dbe91ba11ca92663191019f.png</div>
+                <div class="image-caption" style="display:none;">2vmsnav.png</div>
             </figure>
-</li>
-</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://blogimg.lieme.cn/FnoXuJiXyuA7DR4rITLUO1fhch_n" alt="2vms.png" title>
+                </div>
+                <div class="image-caption" style="display:none;">2vms.png</div>
+            </figure>
 <p>创建服务器</p>
 <ul>
 <li>在左侧菜单中导航到 <a href="https://console.cloud.google.com/compute/instances" target="_blank" rel="noopener">计算引擎 → VM 实例</a></li>
 </ul>
 <p>1.点击加号按钮，创建一个 VM 实例。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://blogimg.lieme.cn/FnbBU5Ougp49dYuNnAxXmNkfgQzu" alt="2createvm.png" title>
+                </div>
+                <div class="image-caption" style="display:none;">2createvm.png</div>
+            </figure>
 <p>2.名称：随意填入一个易记得名字</p>
 <p>3.地区：建议选择<code>asia-east1-*</code> 三个中的任意一个，这个机房是在台湾，国内的延迟只有 50~70ms，简直快到飞起。</p>
 <ul>
@@ -289,15 +310,15 @@
 <li><p>HyperApp 是一个部署自动化以及服务器监控管理的App，致力于让普通用户也可以使用云服务</p>
 </li>
 <li><p>本段介绍如何使用 HyperApp 管理刚刚创建的服务器，开启 BBR 加速，安装科学上网应用。</p>
-<p>[<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://itunes.apple.com/app/apple-store/id1179750280?pt=118260435&ct=gce.s&mt=8" alt="](http://upload-images.jianshu.io/upload_images/1251988-3fc1e1ee251ec9d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)" title>
-                </div>
-                <div class="image-caption" style="display:none;">](http://upload-images.jianshu.io/upload_images/1251988-3fc1e1ee251ec9d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</div>
-            </figure></p>
 </li>
 </ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://blogimg.lieme.cn/Fj64B0r_gPhpgUA2-6Nzo6t2Saar" alt="3servers.png" title>
+                </div>
+                <div class="image-caption" style="display:none;">3servers.png</div>
+            </figure>
 <h5 id="添加服务器"><a href="#添加服务器" class="headerlink" title="添加服务器"></a>添加服务器</h5><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -416,7 +437,7 @@
     <div class="content">
         
 <span class="post-time">
-    最終更新：<time datetime="2019-03-06T07:26:04.634Z" itemprop="dateUpdated">2019-03-06 15:26:04</time>
+    最終更新：<time datetime="2019-06-21T09:50:18.277Z" itemprop="dateUpdated">2019-06-21 17:50:18</time>
 </span><br>
 
 
@@ -460,9 +481,9 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2017/08/07/科学上网.html&title=《使用 HyperApp，打造一个安全稳定超高速的科学上网环境》 — 故事胶片&source= 
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2017/08/07/科学上网.html&title=《使用 HyperApp，打造一个安全稳定超高速的科学上网环境》 — 故事胶片&source=
 这是原作者 @waylybaye 一开始发布在少数派上的文章搬运过来，文章所有权归 原作者 @waylybaye 所有 
-这篇文章将会介绍如何获取由 ..." data-title=" QQ">
+这篇文章将会介绍如何获取由 G..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -642,9 +663,9 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2017/08/07/科学上网.html&title=《使用 HyperApp，打造一个安全稳定超高速的科学上网环境》 — 故事胶片&source= 
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiaopianjun.cc/2017/08/07/科学上网.html&title=《使用 HyperApp，打造一个安全稳定超高速的科学上网环境》 — 故事胶片&source=
 这是原作者 @waylybaye 一开始发布在少数派上的文章搬运过来，文章所有权归 原作者 @waylybaye 所有 
-这篇文章将会介绍如何获取由 ..." data-title=" QQ">
+这篇文章将会介绍如何获取由 G..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
